@@ -22,7 +22,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaCar /> KAZALI ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaCar className="text-accent-400" /> KAZALI ARAÇ ALIM</span>,
       title: 'KAZALI ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'Kaza yapmış aracınızı anında değerlendirip en yüksek fiyatı veriyoruz. 30 dakikada teklif alın.',
@@ -132,7 +132,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaWrench /> HASARLI ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaWrench className="text-accent-400" /> HASARLI ARAÇ ALIM</span>,
       title: 'HASARLI ARACINIZI',
       titleHighlight: 'NAKDE ÇEVİRİN',
       subtitle: 'Boya, kaporta veya mekanik hasarlı aracınız için en iyi fiyatı alın. Anında değerlendirme ve ödeme.',
@@ -236,7 +236,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaFileAlt /> PERT ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaFileAlt className="text-accent-400" /> PERT ARAÇ ALIM</span>,
       title: 'PERT ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'Pert ilanı olan aracınız için profesyonel hizmet. Tüm evrak işlemleri ve en iyi fiyat garantisi.',
@@ -340,7 +340,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaRecycle /> HURDA ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaRecycle className="text-accent-400" /> HURDA ARAÇ ALIM</span>,
       title: 'HURDA ARACINIZ',
       titleHighlight: 'ÇEVRE DOSTU GERİ DÖNÜŞÜM',
       subtitle: 'Eski ve kullanılamaz aracınızı çevreye zarar vermeden geri dönüştürüyoruz. En yüksek hurda fiyatı.',

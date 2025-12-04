@@ -1,167 +1,283 @@
 'use client';
 
-import React, { useState } from 'react';
-import { FaStar, FaQuoteLeft, FaCheckCircle, FaCar, FaMapMarkerAlt } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaStar, FaCheck, FaPhone, FaFire, FaCar, FaWrench, FaClipboard, FaRecycle } from 'react-icons/fa';
 
-const testimonials = [
+// Define the Testimonial interface based on usage
+interface Testimonial {
+  id: number;
+  name: string;
+  initial?: string;
+  bgColor?: string;
+  location: string;
+  rating: number;
+  vehicle?: string;
+  vehicleIcon?: React.ReactNode;
+  text: string;
+  service: string;
+  date?: string;
+  verified?: boolean;
+}
+
+const defaultTestimonials: Testimonial[] = [
   {
     id: 1,
     name: 'Ahmet Yılmaz',
-    location: 'İstanbul, Kadıköy',
-    vehicle: '2018 Ford Focus',
-    service: 'kazali',
+    initial: 'A',
+    bgColor: 'bg-red-500',
+    location: 'İstanbul • Kadıköy',
     rating: 5,
-    date: '2 gün önce',
-    text: 'Kazalı aracımı satmak için çok yer aradım, en iyi fiyatı burası verdi. 30 dakikada geldiler, parayı hemen hesabıma geçtiler. Kesinlikle tavsiye ederim.',
-    avatarColor: 'bg-blue-500'
+    vehicle: 'Toyota Corolla 2018',
+    vehicleIcon: <FaCar />,
+    text: 'Çok profesyonel bir hizmet aldım. Kaza sonrası aracımın değerini en iyi şekilde değerlendirdiler. Piyasadan çok daha iyi bir fiyat verdiler. Evrak işlemleri de çok hızlı halledildi. Teşekkür ederim.',
+    service: 'Kazalı Araç',
+    date: '2024-01-18',
+    verified: true,
   },
   {
     id: 2,
-    name: 'Mehmet Demir',
-    location: 'Ankara, Çankaya',
-    vehicle: '2015 VW Passat',
-    service: 'hasarli',
+    name: 'Ayşe Demir',
+    initial: 'A',
+    bgColor: 'bg-purple-500',
+    location: 'Ankara • Çankaya',
     rating: 5,
-    date: '1 hafta önce',
-    text: 'Motor arızalı aracım vardı, tamir masrafı çok yüksekti. Değerinde aldılar, çekici ile ücretsiz götürdüler. Çok profesyonel bir ekip.',
-    avatarColor: 'bg-green-500'
+    vehicle: 'Renault Megane 2015',
+    vehicleIcon: <FaCar />,
+    text: 'İlk araç satışımdı ve çok endişeliydim. Ancak ekip çok yardımcı oldu ve çok iyi fiyat verdiler. Tüm işlemler hem güvenli hem de çok hızlı bir şekilde gerçekleşti. Kesinlikle tavsiye ederim!',
+    service: 'Hasarlı Araç',
+    date: '2024-01-20',
+    verified: true,
   },
   {
     id: 3,
-    name: 'Ayşe Kaya',
-    location: 'İzmir, Karşıyaka',
-    vehicle: '2020 Renault Clio',
-    service: 'pert',
+    name: 'Mehmet Kaya',
+    initial: 'M',
+    bgColor: 'bg-accent',
+    location: 'İzmir • Karşıyaka',
     rating: 5,
-    date: '3 hafta önce',
-    text: 'Pert kayıtlı aracım için endişeliydim ama süreç çok kolay işledi. Tüm evrak işlerini onlar halletti, ben sadece notere gittim.',
-    avatarColor: 'bg-purple-500'
+    vehicle: 'VW Passat 2016',
+    vehicleIcon: <FaCar />,
+    text: 'Pert aracım için endişeliydim ama çok rahat bir süreç oldu. Ödeme anında yapıldı ve çok memnun kaldım. Çok iyi fiyat verdiler, işlemler hızlıca bitti. Mükemmel bir deneyimdi!',
+    service: 'Pert Araç',
+    date: '2024-02-01',
+    verified: true,
   },
   {
     id: 4,
-    name: 'Mustafa Çelik',
-    location: 'Bursa, Nilüfer',
-    vehicle: '2012 Honda Civic',
-    service: 'kazali',
-    rating: 4,
-    date: '1 ay önce',
-    text: 'Hızlı ve güvenilir hizmet. Fiyat konusunda piyasanın üzerinde teklif verdiler. Memnun kaldım.',
-    avatarColor: 'bg-orange-500'
+    name: 'Zeynep Kara',
+    initial: 'Z',
+    bgColor: 'bg-green-500',
+    location: 'Bursa • Nilüfer',
+    rating: 5,
+    vehicle: 'Fiat Linea 2012',
+    vehicleIcon: <FaCar />,
+    text: 'Hurda aracım için bile en yüksek fiyatı aldım. Profesyonel ekip, çok hızlı işlem. WhatsApp üzerinden anlaştık, aynı gün ödeme yaptılar. Hem geri dönüşüme katkı hem de para kazandım!',
+    service: 'Hurda Araç',
+    date: '2024-02-05',
+    verified: true,
   },
   {
     id: 5,
-    name: 'Zeynep Yıldız',
-    location: 'Antalya, Muratpaşa',
-    vehicle: '2016 Opel Astra',
-    service: 'hasarli',
+    name: 'Can Özkan',
+    initial: 'C',
+    bgColor: 'bg-blue-500',
+    location: 'Antalya • Muratpaşa',
     rating: 5,
-    date: '2 ay önce',
-    text: 'Kaporta hasarlı aracımı satmak istiyordum. WhatsApp\'tan fotoğraf attım, hemen fiyat verdiler. Ertesi gün gelip aldılar.',
-    avatarColor: 'bg-pink-500'
+    vehicle: 'Honda Civic 2017',
+    vehicleIcon: <FaCar />,
+    text: 'Kazalı aracımı satmak için birçok yere baktım ama en iyi teklifi buradan aldım. Çok profesyonel ve güvenilir bir firma. 15 yıllık tecrübeleri gerçekten belli oluyor.',
+    service: 'Kazalı Araç',
+    date: '2024-02-10',
+    verified: true,
   },
   {
     id: 6,
-    name: 'Ali Öztürk',
-    location: 'İstanbul, Başakşehir',
-    vehicle: '2010 Fiat Doblo',
-    service: 'hurda',
+    name: 'Elif Arslan',
+    initial: 'E',
+    bgColor: 'bg-pink-500',
+    location: 'İstanbul • Beşiktaş',
     rating: 5,
-    date: '3 ay önce',
-    text: 'Eski aracımı hurdaya çıkarmak istiyordum. Tüm prosedürleri biliyorlar, hiç uğraşmadım. Teşekkürler.',
-    avatarColor: 'bg-red-500'
-  }
+    vehicle: 'BMW 3 Serisi 2014',
+    vehicleIcon: <FaCar />,
+    text: '2 saat içinde gelip araç değerlemesi yaptılar, anında teklif verdiler. Para transferi de hemen gerçekleşti. Böyle kolay olacağını düşünmemiştim. Herkese tavsiye ederim!',
+    service: 'Hasarlı Araç',
+    date: '2024-02-12',
+    verified: true,
+  },
 ];
 
-const filters = [
-  { id: 'all', label: 'Tümü' },
-  { id: 'kazali', label: 'Kazalı Araç' },
-  { id: 'hasarli', label: 'Hasarlı Araç' },
-  { id: 'pert', label: 'Pert Araç' },
-  { id: 'hurda', label: 'Hurda Araç' },
-];
+interface TestimonialsEnhancedProps {
+  testimonials?: any[]; // Using any[] to allow passing data from cities.ts which might not match exactly, or we can map it
+}
 
-export default function TestimonialsEnhanced() {
+export default function TestimonialsEnhanced({ testimonials: propTestimonials }: TestimonialsEnhancedProps) {
   const [activeFilter, setActiveFilter] = useState('all');
 
+  const filters = [
+    { id: 'all', label: 'Tümü', icon: <FaFire /> },
+    { id: 'Kazalı Araç', label: 'Kazalı', icon: <FaCar /> },
+    { id: 'Hasarlı Araç', label: 'Hasarlı', icon: <FaWrench /> },
+    { id: 'Pert Araç', label: 'Pert', icon: <FaClipboard /> },
+    { id: 'Hurda Araç', label: 'Hurda', icon: <FaRecycle /> },
+  ];
+
+  // Use props if available, otherwise default
+  // We need to map prop testimonials to the format expected by the component if they come from cities.ts
+  const displayTestimonials = propTestimonials ? propTestimonials.map(t => ({
+    id: t.id,
+    name: t.name,
+    initial: t.name.charAt(0),
+    bgColor: 'bg-primary-500', // Default color
+    location: t.location || t.district,
+    rating: t.rating,
+    vehicle: t.vehicle || 'Araç', // Default vehicle
+    vehicleIcon: <FaCar />,
+    text: t.text,
+    service: t.service,
+    date: t.date || new Date().toISOString(),
+    verified: true
+  })) : defaultTestimonials;
+
   const filteredTestimonials = activeFilter === 'all'
-    ? testimonials
-    : testimonials.filter(t => t.service === activeFilter);
+    ? displayTestimonials
+    : displayTestimonials.filter(t => t.service === activeFilter);
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-yellow-50 px-4 py-2 rounded-full border border-yellow-100 mb-4">
-            <div className="flex text-yellow-400">
-              {[...Array(5)].map((_, i) => <FaStar key={i} />)}
-            </div>
-            <span className="text-sm font-bold text-yellow-700">4.9/5 Müşteri Memnuniyeti</span>
+    <section className="section bg-primary-50">
+      <div className="container">
+        {/* Section Header */}
+        <div className="text-center mb-8">
+          <div className="inline-block mb-4">
+            <span className="badge" style={{ backgroundColor: '#FF9800', color: 'white', border: 'none' }}>
+              <FaStar className="inline mr-1" /> Müşteri Yorumları
+            </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-secondary-900 mb-4">
-            Müşterilerimiz Ne Diyor?
+          <h2 className="text-3xl md:text-5xl font-black text-secondary-900 mb-4">
+            Binlerce Mutlu Müşteri
           </h2>
-          <p className="text-lg text-gray-600">
-            Binlerce mutlu müşterimiz gibi siz de aracınızı güvenle satın. Gerçek kullanıcı yorumları.
+          <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
+            Aracını satan müşterilerimizin gerçek deneyimleri
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        {/* Rating Summary */}
+        <div className="max-w-md mx-auto mb-8 bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="flex justify-center gap-1 mb-3">
+            {[...Array(5)].map((_, i) => (
+              <FaStar key={i} className="text-3xl text-yellow-400" />
+            ))}
+          </div>
+          <div className="text-5xl font-black text-secondary-900 mb-1">4.9</div>
+          <div className="text-secondary-600 mb-3">12K+ Değerlendirme</div>
+          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-secondary-100">
+            <div>
+              <div className="text-3xl font-black text-accent">%98</div>
+              <div className="text-xs text-secondary-600">Memnuniyet Oranı</div>
+            </div>
+            <div>
+              <div className="text-3xl font-black text-accent">5000+</div>
+              <div className="text-xs text-secondary-600">Mutlu Müşteri</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
           {filters.map((filter) => (
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${activeFilter === filter.id
-                  ? 'bg-secondary-900 text-white shadow-lg scale-105'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              className={`px-6 py-3 rounded-full font-semibold transition-all flex items-center gap-2 ${activeFilter === filter.id
+                ? 'bg-accent text-white shadow-lg scale-105'
+                : 'bg-white text-secondary-700 hover:bg-secondary-50'
                 }`}
             >
+              <span className="text-lg">{filter.icon}</span>
               {filter.label}
             </button>
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-gray-50 rounded-2xl p-8 relative hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+              className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all"
             >
-              <FaQuoteLeft className="absolute top-6 right-6 text-gray-200 text-4xl" />
-
-              <div className="flex items-center gap-4 mb-6">
-                <div className={`w-12 h-12 rounded-full ${testimonial.avatarColor} flex items-center justify-center text-white font-bold text-xl shadow-md`}>
-                  {testimonial.name.charAt(0)}
+              {/* Header */}
+              <div className="flex items-start gap-4 mb-4">
+                {/* Avatar */}
+                <div className={`w-14 h-14 ${testimonial.bgColor} rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0`}>
+                  {testimonial.initial}
                 </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                  <div className="flex items-center gap-1 text-xs text-gray-500">
-                    <FaMapMarkerAlt /> {testimonial.location}
+
+                {/* Info */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h4 className="font-bold text-secondary-900">{testimonial.name}</h4>
+                    {testimonial.verified && (
+                      <FaCheck className="text-green-500 text-sm" />
+                    )}
+                  </div>
+                  <p className="text-sm text-secondary-600 mb-1">{testimonial.location}</p>
+
+                  {/* Stars */}
+                  <div className="flex gap-0.5">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <FaStar key={i} className="text-yellow-400 text-sm" />
+                    ))}
                   </div>
                 </div>
+
+                {/* Date */}
+                <div className="text-xs text-secondary-400">
+                  {new Date(testimonial.date).toLocaleDateString('tr-TR', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                  })}
+                </div>
               </div>
 
-              <div className="flex text-yellow-400 mb-4 text-sm">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className={i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'} />
-                ))}
+              {/* Vehicle Info */}
+              <div className="flex items-center gap-2 mb-3 pb-3 border-b border-secondary-100">
+                <span className="text-2xl">{testimonial.vehicleIcon}</span>
+                <span className="text-sm font-semibold text-secondary-700">{testimonial.vehicle}</span>
               </div>
 
-              <p className="text-gray-700 mb-6 italic leading-relaxed">
+              {/* Review Text */}
+              <p className="text-secondary-700 mb-4 leading-relaxed italic">
                 "{testimonial.text}"
               </p>
 
-              <div className="pt-6 border-t border-gray-200 flex justify-between items-center">
-                <div className="flex items-center gap-2 text-xs font-medium bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-gray-600">
-                  <FaCar className="text-secondary-500" /> {testimonial.vehicle}
-                </div>
-                <div className="flex items-center gap-1 text-xs text-green-600 font-medium">
-                  <FaCheckCircle /> Doğrulanmış
-                </div>
+              {/* Service Badge & Verified */}
+              <div className="flex items-center justify-between">
+                <span className="badge badge-primary text-xs">
+                  {testimonial.service}
+                </span>
+                {testimonial.verified && (
+                  <div className="flex items-center gap-1 text-xs text-green-600">
+                    <FaCheck />
+                    <span className="font-semibold">Doğrulanmış Müşteri</span>
+                  </div>
+                )}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center">
+          <p className="text-secondary-700 mb-4 text-lg">
+            Siz de bu mutlu müşterilerimize katılın!
+          </p>
+          <a
+            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+            className="btn btn-lg bg-accent hover:bg-accent-600 text-white border-0 gap-2"
+          >
+            <FaPhone /> Hemen Teklif Al →
+          </a>
         </div>
       </div>
     </section>

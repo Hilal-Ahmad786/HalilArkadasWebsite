@@ -1,150 +1,152 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
-import { trackPhoneClick, trackWhatsAppClick, trackFormSubmit } from '@/lib/analytics';
+import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
 import { siteConfig } from '@/data/site';
-import { FaWhatsapp, FaPhoneAlt, FaComments, FaTimes, FaUserCircle, FaPaperPlane } from 'react-icons/fa';
-
-const PRE_WRITTEN_QUESTIONS = [
-  "Aracım ne kadar eder?",
-  "Hangi araçları alıyorsunuz?",
-  "Ödeme süreci nasıl işliyor?",
-  "Yeriniz nerede?",
-  "Hemen teklif almak istiyorum."
-];
+import { FaPhoneAlt, FaWhatsapp, FaPaperPlane, FaTimes, FaRobot } from 'react-icons/fa';
 
 export default function FloatingButtons() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [messages, setMessages] = useState<{ text: string, isUser: boolean }[]>([
-    { text: "Merhaba! 👋 Size nasıl yardımcı olabilirim?", isUser: false }
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<{ text: string; isBot: boolean }[]>([
+    { text: 'Merhaba! Size nasıl yardımcı olabilirim?', isBot: true },
   ]);
-  const chatRef = useRef<HTMLDivElement>(null);
-
-  const toggleChat = () => {
-    if (!isChatOpen) {
-      trackFormSubmit('open_chat_dialog');
-    }
-    setIsChatOpen(!isChatOpen);
-  };
-
-  const handleQuestionClick = (question: string) => {
-    // Add user message
-    setMessages(prev => [...prev, { text: question, isUser: true }]);
-
-    // Simulate typing delay then response
-    setTimeout(() => {
-      let response = "Size bu konuda hemen yardımcı olabiliriz. Lütfen aşağıdaki butonlardan bize ulaşın veya WhatsApp üzerinden fotoğraf gönderin.";
-
-      if (question.includes("ne kadar")) {
-        response = "Aracınızın değerini belirlemek için marka, model ve hasar durumunu görmemiz gerekiyor. WhatsApp'tan fotoğraf gönderirseniz 30 dakika içinde fiyat verebiliriz.";
-      } else if (question.includes("Hangi araç")) {
-        response = "Kazalı, hasarlı, pert, hurda ve motor arızalı her türlü aracı marka model fark etmeksizin alıyoruz.";
-      } else if (question.includes("Ödeme")) {
-        response = "Noter satışı yapıldığı anda paranızı banka hesabınıza havale/EFT yapıyoruz veya nakit ödüyoruz.";
-      }
-
-      setMessages(prev => [...prev, { text: response, isUser: false }]);
-      trackFormSubmit(`chat_question_${question.substring(0, 10)}`);
-    }, 600);
-  };
-
-  // Close chat when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (chatRef.current && !chatRef.current.contains(event.target as Node)) {
-        setIsChatOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  // Auto-scroll to bottom of chat
+  const [inputValue, setInputValue] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const preQuestions = [
+    "Aracım ne kadar eder?",
+    "Hangi araçları alıyorsunuz?",
+    "Ödeme süreci nasıl işliyor?",
+    "Hemen teklif almak istiyorum"
+  ];
+
+  const toggleChat = () => setIsOpen(!isOpen);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    scrollToBottom();
+  }, [messages, isOpen]);
+
+  const handleSendMessage = (text: string) => {
+    if (!text.trim()) return;
+
+    // Add user message
+    setMessages((prev) => [...prev, { text: text, isBot: false }]);
+    setInputValue('');
+
+    // Simulate bot response
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: 'Müşteri temsilcimiz şu an WhatsApp üzerinden hizmet vermektedir. Sizi oraya yönlendiriyorum...',
+          isBot: true,
+        },
+      ]);
+
+      // Redirect to WhatsApp after a short delay
+      setTimeout(() => {
+        const whatsappUrl = formatWhatsAppHref(siteConfig.whatsapp, text);
+        window.open(whatsappUrl, '_blank');
+      }, 1500);
+    }, 1000);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSendMessage(inputValue);
+  };
 
   return (
     <>
       {/* Chat Dialog */}
-      {isChatOpen && (
-        <div
-          ref={chatRef}
-          className="fixed bottom-24 right-4 md:right-24 w-[350px] max-w-[calc(100vw-32px)] bg-white rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-200 animate-slide-up flex flex-col max-h-[600px]"
-        >
+      {isOpen && (
+        <div className="fixed bottom-24 right-8 w-80 md:w-96 bg-white rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-100 animate-fade-in-up">
           {/* Header */}
-          <div className="bg-primary text-white p-4 flex items-center justify-between shadow-md">
+          <div className="bg-primary p-4 flex items-center justify-between text-white">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                  <FaUserCircle className="text-2xl" />
-                </div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-primary"></div>
+              <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                <FaRobot className="text-xl" />
               </div>
               <div>
-                <h3 className="font-bold text-sm">Müşteri Temsilcisi</h3>
-                <p className="text-xs text-primary-100">Çevrimiçi</p>
+                <h3 className="font-bold">Canlı Destek</h3>
+                <p className="text-xs text-white/80">Genellikle 1 dk içinde yanıt verir</p>
               </div>
             </div>
-            <button onClick={() => setIsChatOpen(false)} className="text-white/80 hover:text-white transition-colors">
-              <FaTimes className="text-xl" />
+            <button onClick={toggleChat} className="text-white/80 hover:text-white">
+              <FaTimes />
             </button>
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 p-4 bg-gray-50 overflow-y-auto min-h-[300px]">
-            <div className="space-y-4">
-              {messages.map((msg, idx) => (
-                <div key={idx} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
-                  <div
-                    className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.isUser
-                      ? 'bg-primary text-white rounded-tr-none'
-                      : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none'
-                      }`}
-                  >
-                    {msg.text}
-                  </div>
-                </div>
-              ))}
-              <div ref={messagesEndRef} />
-            </div>
-          </div>
-
-          {/* Quick Questions */}
-          <div className="p-3 bg-white border-t border-gray-100 overflow-x-auto whitespace-nowrap pb-1">
-            <div className="flex gap-2">
-              {PRE_WRITTEN_QUESTIONS.map((q, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleQuestionClick(q)}
-                  className="px-3 py-1.5 bg-gray-100 hover:bg-primary/10 text-gray-600 hover:text-primary text-xs rounded-full border border-gray-200 transition-colors"
+          <div className="h-80 overflow-y-auto p-4 bg-gray-50 space-y-4">
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`flex ${msg.isBot ? 'justify-start' : 'justify-end'}`}
+              >
+                <div
+                  className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.isBot
+                      ? 'bg-white text-gray-800 rounded-tl-none shadow-sm border border-gray-100'
+                      : 'bg-primary text-white rounded-tr-none shadow-md'
+                    }`}
                 >
-                  {q}
-                </button>
-              ))}
-            </div>
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+
+            {/* Pre-questions */}
+            {messages.length === 1 && (
+              <div className="flex flex-col gap-2 mt-4">
+                {preQuestions.map((q, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleSendMessage(q)}
+                    className="text-left text-sm bg-white border border-primary/20 text-primary-700 p-2 rounded-lg hover:bg-primary/5 transition-colors"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div ref={messagesEndRef} />
           </div>
 
-          {/* Action Buttons */}
-          <div className="p-4 bg-white border-t border-gray-100 grid grid-cols-2 gap-3">
-            <a
-              href={formatWhatsAppHref(siteConfig.whatsapp)}
-              onClick={() => trackWhatsAppClick('chat_dialog')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn bg-success hover:bg-green-600 text-white flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-green-100"
-            >
-              <FaWhatsapp className="text-lg" /> WhatsApp
-            </a>
-            <a
-              href={formatPhoneHref(siteConfig.phone)}
-              onClick={() => trackPhoneClick('chat_dialog')}
-              className="btn bg-accent hover:bg-red-600 text-white flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-red-100"
-            >
-              <FaPhoneAlt /> Hemen Ara
-            </a>
+          {/* Input Area */}
+          <div className="p-4 bg-white border-t border-gray-100">
+            <form onSubmit={handleSubmit} className="flex gap-2">
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Mesajınızı yazın..."
+                className="flex-1 bg-gray-100 border-0 rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-primary/50 outline-none"
+              />
+              <button
+                type="submit"
+                className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors shadow-md"
+                disabled={!inputValue.trim()}
+              >
+                <FaPaperPlane className="text-sm ml-0.5" />
+              </button>
+            </form>
+
+            <div className="mt-3 text-center">
+              <a
+                href={formatWhatsAppHref(siteConfig.whatsapp)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-green-600 transition-colors"
+              >
+                <FaWhatsapp /> WhatsApp ile devam et
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -152,35 +154,44 @@ export default function FloatingButtons() {
       {/* Desktop Floating Buttons */}
       <div className="hidden md:flex fixed bottom-8 right-8 flex-col gap-4 z-40">
         <a
-          href={formatPhoneHref(siteConfig.phone)}
-          onClick={() => trackPhoneClick('floating')}
-          className="bg-accent text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform floating"
-          aria-label="Telefon"
-          title="Hemen Ara"
-        >
-          <FaPhoneAlt className="text-2xl" />
-        </a>
-        <a
           href={formatWhatsAppHref(siteConfig.whatsapp)}
           onClick={() => trackWhatsAppClick('floating')}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-success text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+          className="text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+          style={{ backgroundColor: '#25D366' }}
           aria-label="WhatsApp"
-          title="WhatsApp"
         >
           <FaWhatsapp className="text-3xl" />
         </a>
+        <a
+          href={formatPhoneHref(siteConfig.phone)}
+          onClick={() => trackPhoneClick('floating')}
+          className="bg-accent text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform floating"
+          aria-label="Telefon"
+        >
+          <FaPhoneAlt className="text-2xl" />
+        </a>
+
+        {/* Chat Button - Now at the bottom */}
         <button
           onClick={toggleChat}
-          className="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform relative"
-          aria-label="Canlı Sohbet"
-          title="Canlı Sohbet"
+          className="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group relative"
+          aria-label="Canlı Destek"
         >
-          {isChatOpen ? <FaTimes className="text-2xl" /> : <FaComments className="text-2xl" />}
-          {!isChatOpen && (
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></span>
+          {isOpen ? (
+            <FaTimes className="text-2xl" />
+          ) : (
+            <>
+              <FaRobot className="text-2xl" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-primary"></span>
+            </>
           )}
+
+          {/* Tooltip */}
+          <span className="absolute right-full mr-3 bg-white text-primary-900 px-3 py-1 rounded-lg text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Canlı Destek
+          </span>
         </button>
       </div>
 
@@ -192,7 +203,7 @@ export default function FloatingButtons() {
             onClick={() => trackPhoneClick('mobile-bottom')}
             className="flex-1 flex flex-col items-center justify-center py-3 bg-accent text-white"
           >
-            <FaPhoneAlt className="text-xl mb-1" />
+            <FaPhoneAlt className="text-2xl mb-1" />
             <span className="text-xs font-semibold">Hemen Ara</span>
           </a>
           <a
@@ -200,18 +211,12 @@ export default function FloatingButtons() {
             onClick={() => trackWhatsAppClick('mobile-bottom')}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex flex-col items-center justify-center py-3 bg-success text-white"
+            className="flex-1 flex flex-col items-center justify-center py-3 text-white"
+            style={{ backgroundColor: '#25D366' }}
           >
-            <FaWhatsapp className="text-2xl mb-1" />
+            <FaWhatsapp className="text-3xl mb-1" />
             <span className="text-xs font-semibold">WhatsApp</span>
           </a>
-          <button
-            onClick={toggleChat}
-            className="flex-1 flex flex-col items-center justify-center py-3 bg-blue-600 text-white"
-          >
-            <FaComments className="text-xl mb-1" />
-            <span className="text-xs font-semibold">Sohbet</span>
-          </button>
         </div>
       </div>
 

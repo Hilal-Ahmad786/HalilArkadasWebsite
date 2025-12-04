@@ -22,7 +22,7 @@ export const cities: Record<string, City> = {
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaCity /> İSTANBUL ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaCity className="text-accent-400" /> İSTANBUL ARAÇ ALIM</span>,
       title: 'İSTANBUL\'DA ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'İstanbul\'un tüm ilçelerinde kazalı, hasarlı, pert ve hurda araç alımı. 2 saat içinde ücretsiz ekspertiz.',
@@ -152,7 +152,7 @@ export const cities: Record<string, City> = {
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaLandmark /> ANKARA ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaLandmark className="text-accent-400" /> ANKARA ARAÇ ALIM</span>,
       title: 'ANKARA\'DA ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'Ankara\'nın tüm ilçelerinde kazalı, hasarlı, pert ve hurda araç alımı. 1 saat içinde ücretsiz ekspertiz.',
@@ -278,7 +278,7 @@ export const cities: Record<string, City> = {
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaWater /> İZMİR ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaWater className="text-accent-400" /> İZMİR ARAÇ ALIM</span>,
       title: 'İZMİR\'DE ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'İzmir\'in tüm ilçelerinde kazalı, hasarlı, pert ve hurda araç alımı. 1 saat içinde ücretsiz ekspertiz.',
@@ -404,7 +404,7 @@ export const cities: Record<string, City> = {
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaMountain /> BURSA ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaMountain className="text-accent-400" /> BURSA ARAÇ ALIM</span>,
       title: 'BURSA\'DA ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'Bursa\'nın tüm ilçelerinde kazalı, hasarlı, pert ve hurda araç alımı. 1 saat içinde ücretsiz ekspertiz.',
@@ -525,7 +525,7 @@ export const cities: Record<string, City> = {
     ],
 
     hero: {
-      badge: <span className="flex items-center gap-2"><FaUmbrellaBeach /> ANTALYA ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaUmbrellaBeach className="text-accent-400" /> ANTALYA ARAÇ ALIM</span>,
       title: 'ANTALYA\'DA ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'Antalya\'nın tüm ilçelerinde kazalı, hasarlı, pert ve hurda araç alımı. 1 saat içinde ücretsiz ekspertiz.',

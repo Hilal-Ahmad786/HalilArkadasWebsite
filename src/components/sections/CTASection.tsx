@@ -1,10 +1,10 @@
 'use client';
 
-import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import { CTASection as CTASectionType } from '@/data/types';
 import { formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
 import { trackPhoneClick, trackWhatsAppClick, trackCTAClick } from '@/lib/analytics';
 import { siteConfig } from '@/data/site';
+import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
 interface CTASectionProps {
   data: CTASectionType;
@@ -54,8 +54,8 @@ export default function CTASection({ data }: CTASectionProps) {
   return (
     <section
       className={`section ${data.background === 'gradient'
-        ? 'bg-gradient-to-br from-primary-800 via-secondary-800 to-secondary-900'
-        : 'bg-accent-50'
+          ? 'bg-gradient-to-br from-primary-800 via-secondary-800 to-secondary-900'
+          : 'bg-accent-50'
         }`}
     >
       <div className="container">
@@ -65,8 +65,8 @@ export default function CTASection({ data }: CTASectionProps) {
           {data.badge && (
             <div className="inline-block mb-6">
               <span className={`badge ${data.background === 'gradient'
-                ? 'bg-white/20 text-white border border-white/30'
-                : 'badge-primary'
+                  ? 'bg-white/20 text-white border border-white/30'
+                  : 'badge-primary'
                 }`}>
                 {data.badge}
               </span>
@@ -102,10 +102,8 @@ export default function CTASection({ data }: CTASectionProps) {
               onClick={handlePrimaryClick}
               target={data.primaryButton.action === 'whatsapp' ? '_blank' : undefined}
               rel={data.primaryButton.action === 'whatsapp' ? 'noopener noreferrer' : undefined}
-              className={`btn btn-lg font-bold flex items-center justify-center gap-2 shadow-lg ${data.primaryButton.action === 'whatsapp'
-                ? 'bg-success hover:bg-green-600 text-white'
-                : 'bg-accent hover:bg-accent-600 text-white'
-                }`}
+              className="btn btn-primary btn-lg gap-2"
+              style={data.primaryButton.action === 'whatsapp' ? { backgroundColor: '#25D366', borderColor: '#25D366', color: 'white' } : undefined}
             >
               {data.primaryButton.action === 'phone' && <FaPhoneAlt />}
               {data.primaryButton.action === 'whatsapp' && <FaWhatsapp className="text-xl" />}
@@ -118,10 +116,11 @@ export default function CTASection({ data }: CTASectionProps) {
                 onClick={handleSecondaryClick}
                 target={data.secondaryButton.action === 'whatsapp' ? '_blank' : undefined}
                 rel={data.secondaryButton.action === 'whatsapp' ? 'noopener noreferrer' : undefined}
-                className={`btn btn-lg font-bold flex items-center justify-center gap-2 shadow-lg ${data.secondaryButton.action === 'whatsapp'
-                  ? 'bg-success hover:bg-green-600 text-white'
-                  : 'bg-accent hover:bg-accent-600 text-white'
+                className={`btn btn-lg gap-2 ${data.background === 'gradient'
+                    ? 'btn-secondary'
+                    : 'btn-outline'
                   }`}
+                style={data.secondaryButton.action === 'whatsapp' ? { backgroundColor: '#25D366', borderColor: '#25D366', color: 'white' } : undefined}
               >
                 {data.secondaryButton.action === 'phone' && <FaPhoneAlt />}
                 {data.secondaryButton.action === 'whatsapp' && <FaWhatsapp className="text-xl" />}

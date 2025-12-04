@@ -32,9 +32,13 @@ export function formatPhoneHref(phone: string): string {
 /**
  * Format WhatsApp number for href
  */
-export function formatWhatsAppHref(whatsapp: string): string {
+export function formatWhatsAppHref(whatsapp: string, message?: string): string {
   const cleaned = whatsapp.replace(/\D/g, '');
-  return `https://wa.me/${cleaned}`;
+  let url = `https://wa.me/${cleaned}`;
+  if (message) {
+    url += `?text=${encodeURIComponent(message)}`;
+  }
+  return url;
 }
 
 /**

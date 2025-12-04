@@ -12,7 +12,7 @@ export default function StatsSection() {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="text-5xl mb-3 text-white">{stat.icon}</div>
+              <div className="text-5xl mb-3 text-accent-100">{stat.icon}</div>
               <div className="text-4xl md:text-5xl font-black text-accent mb-2">
                 {stat.value}
               </div>

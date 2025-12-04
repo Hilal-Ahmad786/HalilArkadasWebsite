@@ -3,11 +3,17 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import { getServiceBySlug } from '@/data/services';
-import { siteConfig } from '@/data/site';
-import HeroSectionEnhanced from '@/components/sections/HeroSectionEnhanced';
+import HeroSection from '@/components/sections/HeroSection';
+import TrustBadgesSection from '@/components/sections/TrustBadgesSection';
+import DamageAssessmentGuide from '@/components/sections/DamageAssessmentGuide';
+import PriceExamplesShowcase from '@/components/sections/PriceExamplesShowcase';
+import VehicleTypesAccepted from '@/components/sections/VehicleTypesAccepted';
+import ServiceScenariosGrid from '@/components/sections/ServiceScenariosGrid';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import FourStepsProcess from '@/components/sections/FourStepsProcess';
+import PaymentMethodsShowcase from '@/components/sections/PaymentMethodsShowcase';
 import TestimonialsEnhanced from '@/components/sections/TestimonialsEnhanced';
+import GuaranteePromises from '@/components/sections/GuaranteePromises';
 import FAQAccordion from '@/components/sections/FAQAccordion';
 import CTASection from '@/components/sections/CTASection';
 import { ctaSections } from '@/data/cta';
@@ -29,8 +35,8 @@ export default function HurdaAracPage() {
     <>
       <Header />
       <main>
-        {/* Enhanced Hero */}
-        <HeroSectionEnhanced
+        {/* 1. Enhanced Hero with Integrated Form */}
+        <HeroSection
           badge={service.hero.badge}
           title={
             <>
@@ -40,7 +46,22 @@ export default function HurdaAracPage() {
           subtitle={service.hero.subtitle}
         />
 
-        {/* Features / Why Choose Us */}
+        {/* 2. Trust Signals - Builds Immediate Credibility */}
+        <TrustBadgesSection />
+
+        {/* 3. SERVICE-SPECIFIC: What Damage Types We Accept */}
+        <DamageAssessmentGuide serviceType="hurda" />
+
+        {/* 4. SERVICE-SPECIFIC: Real Price Examples */}
+        <PriceExamplesShowcase serviceType="hurda" />
+
+        {/* 5. Vehicle Types Accepted */}
+        <VehicleTypesAccepted serviceType="hurda" />
+
+        {/* 6. SERVICE-SPECIFIC: Common Customer Scenarios */}
+        <ServiceScenariosGrid serviceType="hurda" />
+
+        {/* 7. Why Choose Us - Benefits */}
         <WhyChooseUs
           title="Neden Bizi Seçmelisiniz?"
           description="Hurda aracınızı satarken size sunduğumuz ayrıcalıklar."
@@ -54,16 +75,26 @@ export default function HurdaAracPage() {
           }))}
         />
 
-        {/* Process */}
+        {/* 8. Process Visualization */}
         <FourStepsProcess />
 
-        {/* Testimonials */}
+        {/* 9. Payment Methods & Options */}
+        <PaymentMethodsShowcase />
+
+        {/* 10. Social Proof with Photos & Ratings */}
         <TestimonialsEnhanced />
 
-        {/* FAQ */}
-        <FAQAccordion faqs={service.faqs} />
+        {/* 11. Our Guarantees - Reduces Objections */}
+        <GuaranteePromises />
 
-        {/* Final CTA */}
+        {/* 12. FAQ for This Service */}
+        <FAQAccordion
+          faqs={service.faqs}
+          title="Hurda Araç Alımı Hakkında SSS"
+          subtitle="En çok merak edilen sorular ve cevapları"
+        />
+
+        {/* 13. Final Strong CTA */}
         <CTASection data={ctaSections[0]} />
       </main>
       <Footer />

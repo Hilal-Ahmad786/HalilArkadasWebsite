@@ -1,9 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { FaChevronDown, FaQuestionCircle, FaPhoneAlt } from 'react-icons/fa';
-import { siteConfig } from '@/data/site';
-import { formatPhoneHref } from '@/lib/utils';
+import { useState } from 'react';
+import { FaChevronDown, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
 interface FAQItem {
   question: string;
@@ -16,85 +14,89 @@ interface FAQAccordionProps {
   subtitle?: string;
 }
 
-export default function FAQAccordion({
-  faqs,
-  title = "Sıkça Sorulan Sorular",
-  subtitle = "Aklınıza takılan tüm soruların cevapları burada."
-}: FAQAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+export default function FAQAccordion({ faqs, title = 'MERAK EDİLENLER', subtitle = 'Sıkça Sorulan Sorular' }: FAQAccordionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleAccordion = (index: number) => {
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-12">
-
-          {/* Left: Title & Info */}
-          <div className="lg:w-1/3">
-            <div className="sticky top-24">
-              <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full font-bold text-sm mb-6">
-                <FaQuestionCircle /> MERAK EDİLENLER
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-secondary-900 mb-6">
-                {title}
-              </h2>
-              <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                {subtitle}
-              </p>
-
-              <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                <h4 className="font-bold text-gray-900 mb-2">Başka sorunuz mu var?</h4>
-                <p className="text-sm text-gray-600 mb-4">
-                  Uzman ekibimiz tüm sorularınızı yanıtlamak için hazır.
-                </p>
-                <a
-                  href={formatPhoneHref(siteConfig.phone)}
-                  className="btn bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white w-full flex items-center justify-center gap-2 font-bold transition-all"
-                >
-                  <FaPhoneAlt /> Bizi Arayın
-                </a>
-              </div>
-            </div>
+    <section className="section bg-white">
+      <div className="container max-w-4xl">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <div className="inline-block mb-4">
+            <span className="badge" style={{ backgroundColor: '#E91E63', color: 'white', border: 'none' }}>
+              SIK SORULAN SORULAR
+            </span>
           </div>
+          <h2 className="text-3xl md:text-4xl font-black text-secondary-900 mb-2">
+            {title}
+          </h2>
+          <p className="text-lg text-secondary-600">
+            {subtitle}
+          </p>
+        </div>
 
-          {/* Right: Accordion */}
-          <div className="lg:w-2/3 space-y-4">
-            {faqs.map((faq, index) => (
+        {/* FAQ Items */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border-l-4 border-accent bg-white rounded-xl shadow-md hover:shadow-lg transition-all overflow-hidden"
+            >
+              {/* Question Button */}
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-primary-50 transition-colors"
+              >
+                <h3 className="text-lg font-bold text-secondary-900 pr-4">
+                  {faq.question}
+                </h3>
+                <span className={`flex-shrink-0 text-xl text-accent transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
+                  <FaChevronDown />
+                </span>
+              </button>
+
+              {/* Answer Content */}
               <div
-                key={index}
-                className={`border rounded-xl transition-all duration-300 ${openIndex === index
-                    ? 'border-accent shadow-lg bg-white'
-                    : 'border-gray-200 hover:border-accent/50 bg-gray-50'
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
               >
-                <button
-                  onClick={() => toggleAccordion(index)}
-                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
-                >
-                  <span className={`font-bold text-lg ${openIndex === index ? 'text-accent' : 'text-gray-900'}`}>
-                    {faq.question}
-                  </span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-accent text-white rotate-180' : 'bg-gray-200 text-gray-500'
-                    }`}>
-                    <FaChevronDown />
-                  </div>
-                </button>
-
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                >
-                  <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
-                    {faq.answer}
-                  </div>
+                <div className="px-6 pb-6 text-secondary-700 leading-relaxed">
+                  {faq.answer}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
 
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center bg-primary-50 rounded-2xl p-8">
+          <h3 className="text-xl font-bold text-secondary-900 mb-3">
+            Sorunuzun cevabını bulamadınız mı?
+          </h3>
+          <p className="text-secondary-600 mb-4">
+            7/24 müşteri hizmetlerimiz size yardımcı olmak için hazır!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+              className="btn bg-accent hover:bg-accent-600 text-white border-0 gap-2"
+            >
+              <FaPhoneAlt /> Hemen Ara
+            </a>
+            <a
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn text-white border-0 gap-2"
+              style={{ backgroundColor: '#25D366' }}
+            >
+              <FaWhatsapp className="text-xl" /> WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>

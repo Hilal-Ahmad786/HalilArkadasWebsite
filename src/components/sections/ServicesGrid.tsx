@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getPublishedServices } from '@/data/services';
+import { FaCheck, FaArrowRight, FaPhoneAlt } from 'react-icons/fa';
 
 export default function ServicesGrid() {
   const services = getPublishedServices();
@@ -39,7 +40,7 @@ export default function ServicesGrid() {
               <ul className="space-y-2 mb-4">
                 {service.features.slice(0, 3).map((feature, idx) => (
                   <li key={idx} className="text-sm text-primary-600 flex items-start gap-2">
-                    <span className="text-accent mt-0.5">✓</span>
+                    <span className="text-accent mt-0.5"><FaCheck /></span>
                     <span>{feature.title}</span>
                   </li>
                 ))}
@@ -49,7 +50,7 @@ export default function ServicesGrid() {
               <div className="mt-auto pt-4 border-t border-primary-100">
                 <span className="text-accent font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
                   Detaylı Bilgi
-                  <span>→</span>
+                  <span><FaArrowRight /></span>
                 </span>
               </div>
             </Link>
@@ -63,9 +64,9 @@ export default function ServicesGrid() {
           </p>
           <a
             href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
-            className="btn btn-primary btn-lg"
+            className="btn btn-primary btn-lg gap-2"
           >
-            📞 Bizi Arayın, Yönlendirelim
+            <FaPhoneAlt /> Bizi Arayın, Yönlendirelim
           </a>
         </div>
       </div>

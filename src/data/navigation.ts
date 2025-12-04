@@ -59,6 +59,10 @@ export const mainNavigation: NavigationLink[] = [
     href: '/hakkimizda',
   },
   {
+    label: 'Blog',
+    href: '/blog',
+  },
+  {
     label: 'İletişim',
     href: '/iletisim',
   },
@@ -80,6 +84,7 @@ export const footerNavigation = {
   ],
   company: [
     { label: 'Hakkımızda', href: '/hakkimizda' },
+    { label: 'Blog', href: '/blog' },
     { label: 'İletişim', href: '/iletisim' },
     { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
     { label: 'Kullanım Koşulları', href: '/kullanim-kosullari' },

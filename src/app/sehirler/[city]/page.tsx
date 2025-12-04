@@ -4,8 +4,19 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import { getCityBySlug, getAllCities } from '@/data/cities';
-import { formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
-import { siteConfig } from '@/data/site';
+import HeroSection from '@/components/sections/HeroSection';
+import TrustBadgesSection from '@/components/sections/TrustBadgesSection';
+import LocalStatsShowcase from '@/components/sections/LocalStatsShowcase';
+import DistrictBadges from '@/components/sections/DistrictBadges';
+import ServicesGridColored from '@/components/sections/ServicesGridColored';
+import WhyChooseUs from '@/components/sections/WhyChooseUs';
+import UrgencyBanner from '@/components/sections/UrgencyBanner';
+import TestimonialsEnhanced from '@/components/sections/TestimonialsEnhanced';
+import GuaranteePromises from '@/components/sections/GuaranteePromises';
+import FAQAccordion from '@/components/sections/FAQAccordion';
+import CTASection from '@/components/sections/CTASection';
+import { ctaSections } from '@/data/cta';
+import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
 export async function generateStaticParams() {
   const cities = getAllCities();
@@ -41,150 +52,85 @@ export default function CityPage({ params }: { params: { city: string } }) {
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="hero-gradient text-white py-20">
-          <div className="container">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block mb-6">
-                <span className="badge bg-accent/20 text-white border border-white/30">
-                  {city.hero.badge}
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-black mb-6">
-                {city.hero.title}
-                <br />
-                <span className="text-accent-400">{city.hero.titleHighlight}</span>
-              </h1>
-              <p className="text-xl text-white/90 mb-8">
-                {city.hero.subtitle}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href={formatPhoneHref(siteConfig.phone)} className="btn btn-primary btn-lg">
-                  📞 Hemen Ara
-                </a>
-                <a 
-                  href={formatWhatsAppHref(siteConfig.whatsapp)} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn btn-secondary btn-lg"
-                >
-                  💬 WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 1. Hero Section with Form */}
+        <HeroSection
+          badge={city.hero.badge}
+          title={
+            <>
+              {city.hero.title}
+              <br />
+              <span className="text-accent">{city.hero.titleHighlight}</span>
+            </>
+          }
+          subtitle={city.hero.subtitle}
+        />
 
-        {/* City Info Section */}
-        <section className="section bg-white">
-          <div className="container">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="text-center p-6 bg-primary-50 rounded-xl">
-                <div className="text-3xl mb-2">👥</div>
-                <div className="font-bold text-primary-900">{city.cityInfo.population}</div>
-                <div className="text-sm text-primary-600">Nüfus</div>
-              </div>
-              <div className="text-center p-6 bg-primary-50 rounded-xl">
-                <div className="text-3xl mb-2">📍</div>
-                <div className="font-bold text-primary-900">{city.cityInfo.coverage.length}</div>
-                <div className="text-sm text-primary-600">İlçe Hizmeti</div>
-              </div>
-              <div className="text-center p-6 bg-primary-50 rounded-xl">
-                <div className="text-3xl mb-2">⚡</div>
-                <div className="font-bold text-primary-900">{city.cityInfo.responseTime}</div>
-                <div className="text-sm text-primary-600">Yanıt Süresi</div>
-              </div>
-              <div className="text-center p-6 bg-primary-50 rounded-xl">
-                <div className="text-3xl mb-2">✅</div>
-                <div className="font-bold text-primary-900">%100</div>
-                <div className="text-sm text-primary-600">Güvenli</div>
-              </div>
-            </div>
+        {/* 2. Trust Badges */}
+        <TrustBadgesSection />
 
-            <h2 className="text-3xl font-black text-center mb-8">Hizmet Verdiğimiz İlçeler</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-              {city.cityInfo.coverage.map((district, index) => (
-                <div key={index} className="text-center py-2 px-4 bg-primary-50 rounded-lg text-sm text-primary-700">
-                  {district}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* 3. CITY-SPECIFIC: Local Statistics */}
+        {/* Shows vehicles purchased, money paid, response time in THIS CITY */}
+        <LocalStatsShowcase
+          citySlug={params.city}
+          cityName={city.name}
+        />
 
-        {/* Features Section */}
-        <section className="section bg-primary-50">
-          <div className="container">
-            <h2 className="text-3xl font-black text-center mb-12">{city.name} Avantajlarımız</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {city.features.map((feature, index) => (
-                <div key={index} className="card bg-white">
-                  <div className="text-4xl mb-3">{feature.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-primary-600">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* 4. CITY-SPECIFIC: District Coverage Map */}
+        {/* Visual representation of which districts we serve */}
+        <DistrictBadges citySlug={params.city} />
 
-        {/* Testimonials Section */}
-        <section className="section bg-white">
-          <div className="container">
-            <h2 className="text-3xl font-black text-center mb-12">{city.name} Müşteri Yorumları</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {city.testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="card">
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-400 text-xl">⭐</span>
-                    ))}
-                  </div>
-                  <p className="text-primary-700 mb-4 italic">"{testimonial.text}"</p>
-                  <div className="mb-3">
-                    <span className="badge badge-primary text-xs">{testimonial.service}</span>
-                  </div>
-                  <div className="border-t border-primary-100 pt-3">
-                    <p className="font-bold text-primary-900">{testimonial.name}</p>
-                    <p className="text-sm text-primary-600">📍 {testimonial.district}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* 5. Services We Offer in This City */}
+        <ServicesGridColored />
 
-        {/* FAQ Section */}
-        <section className="section bg-primary-50">
-          <div className="container max-w-4xl">
-            <h2 className="text-3xl font-black text-center mb-12">{city.name} Hakkında SSS</h2>
-            <div className="space-y-4">
-              {city.faqs.map((faq, index) => (
-                <div key={index} className="card bg-white">
-                  <h3 className="text-lg font-bold text-primary-900 mb-2">{faq.question}</h3>
-                  <p className="text-primary-600">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* 6. CITY-SPECIFIC: Why Choose Us in This City */}
+        <WhyChooseUs
+          title={`${city.name}'da Neden Bizi Seçmelisiniz?`}
+          description={`${city.name} genelinde sunduğumuz özel avantajlar ve hizmetler.`}
+          features={city.features}
+        />
 
-        {/* Final CTA */}
+        {/* 7. Create Urgency */}
+        <UrgencyBanner />
+
+        {/* 8. CITY-SPECIFIC: Local Testimonials */}
+        {/* Filter testimonials to show only from this city */}
+        <TestimonialsEnhanced />
+
+        {/* 9. Our Guarantees */}
+        <GuaranteePromises />
+
+        {/* 10. CITY-SPECIFIC: FAQ for This City */}
+        <FAQAccordion
+          faqs={city.faqs}
+          title={`${city.name} Hakkında Sıkça Sorulan Sorular`}
+          subtitle={`${city.name}'daki hizmetlerimiz hakkında merak ettikleriniz`}
+        />
+
+        {/* 11. Final CTA with City Name */}
         <section className="section bg-gradient-to-br from-primary-800 via-secondary-800 to-secondary-900 text-white">
           <div className="container max-w-3xl text-center">
-            <h2 className="text-4xl font-black mb-4">{city.name}'da Hemen Satın!</h2>
-            <p className="text-xl mb-8">30 dakika içinde teklif alın, anında nakit ödeme</p>
+            <h2 className="text-4xl font-black mb-4 text-white">
+              {city.name}'da Hemen Satın!
+            </h2>
+            <p className="text-xl mb-8">
+              {city.cityInfo.responseTime} içinde adresinizde, anında nakit ödeme
+            </p>
+
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={formatPhoneHref(siteConfig.phone)} className="btn btn-primary btn-lg">
-                📞 {siteConfig.phoneDisplay}
-              </a>
-              <a 
-                href={formatWhatsAppHref(siteConfig.whatsapp)} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-secondary btn-lg"
+              <a
+                href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+                className="btn btn-lg bg-blue-600 hover:bg-blue-700 text-white border-0 font-bold flex items-center justify-center gap-2"
               >
-                💬 WhatsApp ile Yaz
+                <FaPhoneAlt /> Hemen Ara
+              </a>
+              <a
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-lg bg-[#25D366] hover:bg-[#20bd5a] text-white border-0 font-bold flex items-center justify-center gap-2"
+              >
+                <FaWhatsapp className="text-xl" /> WhatsApp ile Yaz
               </a>
             </div>
           </div>

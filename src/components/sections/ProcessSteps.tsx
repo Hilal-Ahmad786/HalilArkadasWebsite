@@ -1,4 +1,5 @@
 import { processSteps } from '@/data/process';
+import { FaArrowRight, FaBolt } from 'react-icons/fa';
 
 export default function ProcessSteps() {
   return (
@@ -44,7 +45,7 @@ export default function ProcessSteps() {
               {/* Arrow (hidden on last item and mobile) */}
               {index < processSteps.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 translate-x-full text-accent text-2xl z-10">
-                  →
+                  <FaArrowRight />
                 </div>
               )}
             </div>
@@ -53,8 +54,8 @@ export default function ProcessSteps() {
 
         {/* Bottom Note */}
         <div className="mt-12 text-center">
-          <p className="text-primary-700 font-semibold mb-4">
-            ⚡ Ortalama işlem süresi: <span className="text-accent">2-3 saat</span>
+          <p className="text-primary-700 font-semibold mb-4 flex items-center justify-center gap-2">
+            <FaBolt className="text-accent" /> Ortalama işlem süresi: <span className="text-accent">2-3 saat</span>
           </p>
           <p className="text-sm text-primary-600">
             * Evrak durumuna göre süre değişiklik gösterebilir

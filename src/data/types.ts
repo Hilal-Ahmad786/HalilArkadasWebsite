@@ -6,13 +6,13 @@ export interface Service {
   slug: string;
   title: string;
   shortTitle: string;
-  icon: string | React.ReactNode;
+  icon: React.ReactNode;
   color: string;
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
   hero: {
-    badge: string | React.ReactNode;
+    badge: React.ReactNode;
     title: string;
     titleHighlight: string;
     subtitle: string;
@@ -38,7 +38,7 @@ export interface City {
   metaDescription: string;
   keywords: string[];
   hero: {
-    badge: string | React.ReactNode;
+    badge: React.ReactNode;
     title: string;
     titleHighlight: string;
     subtitle: string;
@@ -61,7 +61,7 @@ export interface City {
 }
 
 export interface Feature {
-  icon: string | React.ReactNode;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
@@ -69,7 +69,7 @@ export interface Feature {
 export interface Testimonial {
   id: number;
   name: string;
-  location?: string;
+  location: string;
   district?: string;
   rating: number;
   text: string;
@@ -85,7 +85,7 @@ export interface FAQ {
 
 export interface ProcessStep {
   step: number;
-  icon: string | React.ReactNode;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
@@ -93,7 +93,7 @@ export interface ProcessStep {
 export interface Stat {
   value: string;
   label: string;
-  icon: string | React.ReactNode;
+  icon: React.ReactNode;
 }
 
 export interface SiteConfig {
@@ -122,7 +122,7 @@ export interface NavigationLink {
 
 export interface CTASection {
   id: string;
-  badge?: string | React.ReactNode;
+  badge?: React.ReactNode;
   title: string;
   titleHighlight?: string;
   description: string;

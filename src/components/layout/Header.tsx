@@ -6,7 +6,7 @@ import { siteConfig } from '@/data/site';
 import { mainNavigation } from '@/data/navigation';
 import { formatPhoneDisplay, formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
 import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
-import { FaBolt, FaCheckCircle, FaPhoneAlt, FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
+import { FaPhoneAlt, FaWhatsapp, FaBolt, FaCheckCircle, FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,14 +72,15 @@ export default function Header() {
               onClick={() => trackWhatsAppClick('header')}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary btn-sm flex items-center gap-2"
+              className="btn btn-sm text-white border-0 gap-2"
+              style={{ backgroundColor: '#25D366' }}
             >
               <FaWhatsapp className="text-lg" /> WhatsApp
             </a>
             <a
               href={formatPhoneHref(siteConfig.phone)}
               onClick={() => trackPhoneClick('header')}
-              className="btn btn-primary btn-sm flex items-center gap-2"
+              className="btn btn-primary btn-sm gap-2"
             >
               <FaPhoneAlt /> Hemen Ara
             </a>
@@ -88,7 +89,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-primary-900"
+            className="lg:hidden p-2 text-primary-700"
             aria-label="Menu"
           >
             {mobileMenuOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
@@ -131,14 +132,15 @@ export default function Header() {
                 onClick={() => trackWhatsAppClick('header-mobile')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-secondary w-full flex items-center justify-center gap-2"
+                className="btn w-full text-white border-0 gap-2"
+                style={{ backgroundColor: '#25D366' }}
               >
                 <FaWhatsapp className="text-lg" /> WhatsApp
               </a>
               <a
                 href={formatPhoneHref(siteConfig.phone)}
                 onClick={() => trackPhoneClick('header-mobile')}
-                className="btn btn-primary w-full flex items-center justify-center gap-2"
+                className="btn btn-primary w-full gap-2"
               >
                 <FaPhoneAlt /> Hemen Ara
               </a>
