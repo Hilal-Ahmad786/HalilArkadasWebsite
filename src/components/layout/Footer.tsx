@@ -7,9 +7,9 @@ export default function Footer() {
   return (
     <footer className="bg-primary-900 text-white">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
-          <div>
+          <div className="lg:col-span-1">
             <h3 className="text-xl font-bold mb-4">{siteConfig.name}</h3>
             <p className="text-slate-300 mb-4 text-sm">{siteConfig.tagline}</p>
             <div className="flex gap-4">
@@ -36,6 +36,28 @@ export default function Footer() {
                 </a>
               )}
             </div>
+          </div>
+
+          {/* Corporate / Company Links */}
+          <div>
+            <h4 className="text-white font-bold mb-4">Kurumsal</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-slate-300 hover:text-accent transition-colors text-sm">
+                  Ana Sayfa
+                </Link>
+              </li>
+              {footerNavigation.company.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-slate-300 hover:text-accent transition-colors text-sm"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Services */}
@@ -92,14 +114,14 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="flex items-center group"
             >
-              <span className="text-primary-400 mr-2 group-hover:text-accent transition-colors text-xs">Developed by</span>
-              <div className="flex items-center text-accent group-hover:text-accent-400 transition-colors">
+              <div className="flex items-center text-accent group-hover:text-accent-400 transition-colors mr-2">
                 {/* Custom Crescent Icon */}
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 -rotate-12 mr-1">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.85 0 3.58-.5 5.08-1.38-.7.13-1.42.21-2.16.21-5.52 0-10-4.48-10-10S9.42 2.83 14.92 2.83c.74 0 1.46.08 2.16.21C15.58 2.5 13.85 2 12 2z" />
                 </svg>
                 <span className="font-bold text-sm tracking-wide">PakSoft</span>
               </div>
+              <span className="text-primary-400 group-hover:text-accent transition-colors text-xs">Tarafından Geliştirildi</span>
             </a>
           </div>
         </div>

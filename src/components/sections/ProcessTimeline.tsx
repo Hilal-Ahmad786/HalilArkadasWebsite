@@ -31,7 +31,7 @@ export default function ProcessTimeline() {
         </div>
 
         {/* Timeline - Desktop */}
-        <div className="hidden lg:block relative max-w-5xl mx-auto my-16">
+        <div className="hidden lg:block relative max-w-5xl mx-auto mt-32 mb-16">
           {/* Central Line */}
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary transform -translate-y-1/2"></div>
 
