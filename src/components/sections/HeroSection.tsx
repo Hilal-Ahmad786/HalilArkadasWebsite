@@ -31,7 +31,7 @@ export default function HeroSection({
   subtitle = "Kazalı, hasarlı, pert ve hurda araçlar için 30 dakikada ücretsiz ekspertiz ve anında nakit ödeme.",
 }: HeroProps) {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0f172a]">
+    <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#0f172a]">
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
         {/* Dark Gradient Overlay */}
@@ -45,7 +45,7 @@ export default function HeroSection({
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 z-0"></div>
       </div>
 
-      <div className="container relative z-20 px-4 py-20">
+      <div className="container relative z-20 px-4 pt-10 pb-20">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-block mb-8 animate-fade-in-up">
