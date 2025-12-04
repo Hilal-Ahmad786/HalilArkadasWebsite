@@ -50,14 +50,7 @@ const vehicleTypes: Record<string, VehicleType[]> = {
       examples: ['Ford Cargo', 'MAN', 'Mercedes Axor'],
       accepted: true
     },
-    {
-      id: 'motorcycle',
-      name: 'Motosiklet',
-      icon: <FaMotorcycle />,
-      description: 'İki tekerlekli araçlar',
-      examples: ['Kawasaki', 'Honda', 'Yamaha', 'BMW'],
-      accepted: true
-    },
+
     {
       id: 'tractor',
       name: 'Traktör & İş Makinesi',
