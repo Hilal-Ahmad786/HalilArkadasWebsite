@@ -98,7 +98,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4">
+          <div className="lg:hidden mt-4 pb-4 max-h-[80vh] overflow-y-auto">
             {mainNavigation.map((item) => (
               <div key={item.href} className="py-2">
                 <Link

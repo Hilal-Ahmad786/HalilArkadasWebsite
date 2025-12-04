@@ -39,8 +39,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <GoogleTagManager />
       <body className={inter.className}>
+        <GoogleTagManager />
         {children}
         <GoogleAnalytics />
         <FacebookPixel />
