@@ -34,8 +34,13 @@ export default function Header() {
       <nav className="container py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-primary-900">
-            {siteConfig.name}
+          <Link href="/" className="flex items-center">
+            {/* Logo Image */}
+            <img
+              src={siteConfig.logo}
+              alt={siteConfig.name}
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Menu */}

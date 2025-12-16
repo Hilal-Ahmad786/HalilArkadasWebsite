@@ -3,7 +3,7 @@ import { SiteConfig } from './types';
 import { FaTrophy, FaBolt, FaCheckCircle, FaSmile, FaMoneyBillWave, FaTruck, FaFileAlt, FaBuilding } from 'react-icons/fa';
 
 export const siteConfig: SiteConfig = {
-  name: 'Otomoto Alım',
+  name: 'Kazalı Araç Alım Satım',
   description: 'Türkiye\'nin en güvenilir hasarlı, kazalı, pert ve hurda araç alım platformu. 30 dakikada teklif, anında nakit ödeme.',
   tagline: 'Aracınızı En Yüksek Fiyata Satın Alıyoruz',
 
@@ -11,8 +11,8 @@ export const siteConfig: SiteConfig = {
   phone: '+905551234567',
   phoneDisplay: '0555 123 45 67',
   whatsapp: '905551234567',
-  email: 'info@otomotoalim.com.tr',
-  address: 'Merkez Mahallesi, İş Kulesi No: 123, Şişli/İstanbul',
+  email: 'info@kazaliaracalimsatim.com',
+  address: 'İvedik OSB Mahallesi, 1468. Cadde No: 56, Yenimahalle/Ankara',
 
   // Social Media
   social: {
@@ -22,7 +22,7 @@ export const siteConfig: SiteConfig = {
 
   // Business Info
   businessHours: 'Pazartesi - Pazar: 08:00 - 22:00',
-  logo: '/logo.png',
+  logo: '/images/logo.jpeg',
 };
 
 // Stats for homepage

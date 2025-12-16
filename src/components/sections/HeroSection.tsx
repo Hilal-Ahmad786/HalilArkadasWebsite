@@ -42,7 +42,11 @@ export default function HeroSection({
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] animate-pulse delay-1000"></div>
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 z-0"></div>
+        <div className="absolute inset-0 z-0" style={{
+          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+          opacity: 0.1
+        }}></div>
       </div>
 
       <div className="container relative z-20 px-4 pt-10 pb-20">

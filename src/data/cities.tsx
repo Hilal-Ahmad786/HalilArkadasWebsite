@@ -9,7 +9,7 @@ export const cities: Record<string, City> = {
     name: 'İstanbul',
     region: 'Marmara',
 
-    metaTitle: 'İstanbul Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Otomoto Alım',
+    metaTitle: 'İstanbul Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
     metaDescription: 'İstanbul\'da kazalı, hasarlı, pert ve hurda araç alımı. Avrupa ve Anadolu yakası hizmet. 2 saat içinde teklif. 0555 123 45 67',
     keywords: [
       'istanbul kazalı araç alan',
@@ -140,7 +140,7 @@ export const cities: Record<string, City> = {
     name: 'Ankara',
     region: 'İç Anadolu',
 
-    metaTitle: 'Ankara Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Otomoto Alım',
+    metaTitle: 'Ankara Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
     metaDescription: 'Ankara\'da kazalı, hasarlı, pert ve hurda araç alımı. Çankaya, Keçiören, Yenimahalle hizmet. 1 saat içinde teklif. 0555 123 45 67',
     keywords: [
       'ankara kazalı araç alan',
@@ -266,7 +266,7 @@ export const cities: Record<string, City> = {
     name: 'İzmir',
     region: 'Ege',
 
-    metaTitle: 'İzmir Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Otomoto Alım',
+    metaTitle: 'İzmir Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
     metaDescription: 'İzmir\'de kazalı, hasarlı, pert ve hurda araç alımı. Karşıyaka, Bornova, Konak hizmet. 1 saat içinde teklif. 0555 123 45 67',
     keywords: [
       'izmir kazalı araç alan',
@@ -392,7 +392,7 @@ export const cities: Record<string, City> = {
     name: 'Bursa',
     region: 'Marmara',
 
-    metaTitle: 'Bursa Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Otomoto Alım',
+    metaTitle: 'Bursa Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
     metaDescription: 'Bursa\'da kazalı, hasarlı, pert ve hurda araç alımı. Osmangazi, Nilüfer, Yıldırım hizmet. 1 saat içinde teklif. 0555 123 45 67',
     keywords: [
       'bursa kazalı araç alan',
@@ -513,7 +513,7 @@ export const cities: Record<string, City> = {
     name: 'Antalya',
     region: 'Akdeniz',
 
-    metaTitle: 'Antalya Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Otomoto Alım',
+    metaTitle: 'Antalya Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
     metaDescription: 'Antalya\'da kazalı, hasarlı, pert ve hurda araç alımı. Muratpaşa, Kepez, Konyaaltı hizmet. 1 saat içinde teklif. 0555 123 45 67',
     keywords: [
       'antalya kazalı araç alan',

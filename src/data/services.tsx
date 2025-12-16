@@ -11,7 +11,7 @@ export const services: Service[] = [
     icon: <FaCar />,
     color: 'accent',
 
-    metaTitle: 'Kazalı Araç Alımı - En Yüksek Fiyat Garantisi | Otomoto Alım',
+    metaTitle: 'Kazalı Araç Alımı - En Yüksek Fiyat Garantisi | Kazalı Araç Alım Satım',
     metaDescription: 'Kazalı aracınızı en yüksek fiyata satın alıyoruz. 30 dakikada teklif, anında nakit ödeme. Ücretsiz ekspertiz ve çekici hizmeti. Tüm Türkiye\'ye hizmet.',
     keywords: [
       'kazalı araç alımı',
@@ -22,7 +22,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaCar className="text-accent-400" /> KAZALI ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaCar className="text-accent-400" /> 81 İl'de Kazalı Araç Alım Satım "En İyi Teklif Bizde"</span>,
       title: 'KAZALI ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'Kaza yapmış aracınızı anında değerlendirip en yüksek fiyatı veriyoruz. 30 dakikada teklif alın.',
@@ -90,7 +90,7 @@ export const services: Service[] = [
     ],
 
     content: {
-      intro: 'Kaza yapmış aracınızı en karlı şekilde satmanın adresi Otomoto Alım! 15 yıllık tecrübemizle kazalı araç alımında Türkiye\'nin lider firmasıyız.',
+      intro: 'Kaza yapmış aracınızı en karlı şekilde satmanın adresi Kazalı Araç Alım Satım! 15 yıllık tecrübemizle kazalı araç alımında Türkiye\'nin lider firmasıyız.',
       details: [
         'Hafif, orta ve ağır hasarlı tüm kazalı araçları satın alıyoruz',
         'Marka, model ve yıl fark etmeksizin tüm araçlar için değerlendirme',
@@ -121,7 +121,7 @@ export const services: Service[] = [
     icon: <FaWrench />,
     color: 'accent',
 
-    metaTitle: 'Hasarlı Araç Alımı - Hızlı ve Güvenli İşlem | Otomoto Alım',
+    metaTitle: 'Hasarlı Araç Alımı - Hızlı ve Güvenli İşlem | Kazalı Araç Alım Satım',
     metaDescription: 'Hasarlı aracınızı anında değerlendirip en yüksek fiyatı veriyoruz. Tüm hasar türleri için profesyonel hizmet. Ücretsiz çekici ve ekspertiz.',
     keywords: [
       'hasarlı araç alımı',
@@ -132,7 +132,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaWrench className="text-accent-400" /> HASARLI ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaWrench className="text-accent-400" /> 81 İl'de Hasarlı Araç Alım Satım "En İyi Teklif Bizde"</span>,
       title: 'HASARLI ARACINIZI',
       titleHighlight: 'NAKDE ÇEVİRİN',
       subtitle: 'Boya, kaporta veya mekanik hasarlı aracınız için en iyi fiyatı alın. Anında değerlendirme ve ödeme.',
@@ -195,7 +195,7 @@ export const services: Service[] = [
     ],
 
     content: {
-      intro: 'Hasarlı aracınızı satmak artık çok kolay! Otomoto Alım olarak boya, kaporta ve mekanik hasarlı tüm araçları en yüksek fiyatla satın alıyoruz.',
+      intro: 'Hasarlı aracınızı satmak artık çok kolay! Kazalı Araç Alım Satım olarak boya, kaporta ve mekanik hasarlı tüm araçları en yüksek fiyatla satın alıyoruz.',
       details: [
         'Boya ve kaporta hasarı olan araçlar',
         'Motor, şanzıman ve mekanik hasarlı araçlar',
@@ -225,7 +225,7 @@ export const services: Service[] = [
     icon: <FaFileAlt />,
     color: 'accent',
 
-    metaTitle: 'Pert Araç Alımı - Hızlı Alım ve Satım | Otomoto Alım',
+    metaTitle: 'Pert Araç Alımı - Hızlı Alım ve Satım | Kazalı Araç Alım Satım',
     metaDescription: 'Pert ilanı olan aracınızı hemen satın alıyoruz. Tüm pert işlemleri ve evraklar tarafımızdan yapılır. Anında nakit ödeme.',
     keywords: [
       'pert araç alımı',
@@ -236,7 +236,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaFileAlt className="text-accent-400" /> PERT ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaFileAlt className="text-accent-400" /> 81 İl'de Pert Araç Alım Satım "En İyi Teklif Bizde"</span>,
       title: 'PERT ARACINIZ',
       titleHighlight: 'EN YÜKSEK FİYATA',
       subtitle: 'Pert ilanı olan aracınız için profesyonel hizmet. Tüm evrak işlemleri ve en iyi fiyat garantisi.',
@@ -299,7 +299,7 @@ export const services: Service[] = [
     ],
 
     content: {
-      intro: 'Pert ilanı olan aracınızı satmak için doğru adrestesiniz. Otomoto Alım olarak tüm pert araç türleri için profesyonel alım hizmeti sunuyoruz.',
+      intro: 'Pert ilanı olan aracınızı satmak için doğru adrestesiniz. Kazalı Araç Alım Satım olarak tüm pert araç türleri için profesyonel alım hizmeti sunuyoruz.',
       details: [
         'Sigorta şirketleri tarafından pert ilan edilen araçlar',
         'Noter pert ilanı olan araçlar',
@@ -329,7 +329,7 @@ export const services: Service[] = [
     icon: <FaRecycle />,
     color: 'accent',
 
-    metaTitle: 'Hurda Araç Alımı - Çevre Dostu Geri Dönüşüm | Otomoto Alım',
+    metaTitle: 'Hurda Araç Alımı - Çevre Dostu Geri Dönüşüm | Kazalı Araç Alım Satım',
     metaDescription: 'Hurda aracınızı çevre dostu yöntemlerle satın alıyoruz. En yüksek hurda fiyatı, ücretsiz çekici ve hızlı işlem garantisi.',
     keywords: [
       'hurda araç alımı',
@@ -340,7 +340,7 @@ export const services: Service[] = [
     ],
 
     hero: {
-      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaRecycle className="text-accent-400" /> HURDA ARAÇ ALIM</span>,
+      badge: <span className="badge bg-white/10 text-white border border-white/20 backdrop-blur-md gap-2 px-4 py-2 rounded-full flex items-center"><FaRecycle className="text-accent-400" /> 81 İl'de Hurda Araç Alım Satım "En İyi Teklif Bizde"</span>,
       title: 'HURDA ARACINIZ',
       titleHighlight: 'ÇEVRE DOSTU GERİ DÖNÜŞÜM',
       subtitle: 'Eski ve kullanılamaz aracınızı çevreye zarar vermeden geri dönüştürüyoruz. En yüksek hurda fiyatı.',

@@ -149,26 +149,26 @@ export default function FourStepsProcess({
         </div>
 
         {/* Timeline Bar */}
-        <div className="mb-12 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+        <div className="mb-12 bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:p-8 border border-white/10">
           <h3 className="text-2xl font-black text-center mb-6" style={{ color: '#CDDC39' }}>
             ORTALAMA SÜRE
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>5 DK</div>
-              <div className="text-sm text-white/70">İlk Görüşme</div>
+              <div className="text-3xl md:text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>5 DK</div>
+              <div className="text-xs md:text-sm text-white/70">İlk Görüşme</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>30 DK</div>
-              <div className="text-sm text-white/70">Değerlendirme</div>
+              <div className="text-3xl md:text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>30 DK</div>
+              <div className="text-xs md:text-sm text-white/70">Değerlendirme</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>2 SAAT</div>
-              <div className="text-sm text-white/70">Noter İşlemi</div>
+              <div className="text-3xl md:text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>2 SAAT</div>
+              <div className="text-xs md:text-sm text-white/70">Noter İşlemi</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>ANINDA</div>
-              <div className="text-sm text-white/70">Ödeme</div>
+              <div className="text-3xl md:text-5xl font-black mb-2" style={{ color: '#CDDC39' }}>ANINDA</div>
+              <div className="text-xs md:text-sm text-white/70">Ödeme</div>
             </div>
           </div>
         </div>
