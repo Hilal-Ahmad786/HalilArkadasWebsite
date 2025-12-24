@@ -4,6 +4,7 @@ import './globals.css';
 import GoogleTagManager from '@/components/analytics/GoogleTagManager';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import FacebookPixel from '@/components/analytics/FacebookPixel';
+import PopupDialog from '@/components/layout/PopupDialog';
 import { siteConfig } from '@/data/site';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <GoogleTagManager />
         {children}
+        <PopupDialog />
         <GoogleAnalytics />
         <FacebookPixel />
       </body>
