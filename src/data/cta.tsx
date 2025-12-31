@@ -39,7 +39,7 @@ export const ctaSections: CTASection[] = [
     titleHighlight: 'Hemen Arayın!',
     description: 'Aracınızı en yüksek fiyata satmanın tam zamanı. 7/24 hizmetinizdeyiz.',
     primaryButton: {
-      text: '0555 123 45 67',
+      text: '0 555 751 22 20',
       action: 'phone',
     },
     secondaryButton: {

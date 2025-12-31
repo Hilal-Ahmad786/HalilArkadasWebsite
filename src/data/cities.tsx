@@ -10,7 +10,7 @@ export const cities: Record<string, City> = {
     region: 'Marmara',
 
     metaTitle: 'İstanbul Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
-    metaDescription: 'İstanbul\'da kazalı, hasarlı, pert ve hurda araç alımı. Avrupa ve Anadolu yakası hizmet. 2 saat içinde teklif. 0555 123 45 67',
+    metaDescription: 'İstanbul\'da kazalı, hasarlı, pert ve hurda araç alımı. Avrupa ve Anadolu yakası hizmet. 2 saat içinde teklif. 0 555 751 22 20',
     keywords: [
       'istanbul kazalı araç alan',
       'istanbul hasarlı araç alan',
@@ -141,7 +141,7 @@ export const cities: Record<string, City> = {
     region: 'İç Anadolu',
 
     metaTitle: 'Ankara Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
-    metaDescription: 'Ankara\'da kazalı, hasarlı, pert ve hurda araç alımı. Çankaya, Keçiören, Yenimahalle hizmet. 1 saat içinde teklif. 0555 123 45 67',
+    metaDescription: 'Ankara\'da kazalı, hasarlı, pert ve hurda araç alımı. Çankaya, Keçiören, Yenimahalle hizmet. 1 saat içinde teklif. 0 555 751 22 20',
     keywords: [
       'ankara kazalı araç alan',
       'ankara hasarlı araç alan',
@@ -267,7 +267,7 @@ export const cities: Record<string, City> = {
     region: 'Ege',
 
     metaTitle: 'İzmir Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
-    metaDescription: 'İzmir\'de kazalı, hasarlı, pert ve hurda araç alımı. Karşıyaka, Bornova, Konak hizmet. 1 saat içinde teklif. 0555 123 45 67',
+    metaDescription: 'İzmir\'de kazalı, hasarlı, pert ve hurda araç alımı. Karşıyaka, Bornova, Konak hizmet. 1 saat içinde teklif. 0 555 751 22 20',
     keywords: [
       'izmir kazalı araç alan',
       'izmir hasarlı araç alan',
@@ -393,7 +393,7 @@ export const cities: Record<string, City> = {
     region: 'Marmara',
 
     metaTitle: 'Bursa Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
-    metaDescription: 'Bursa\'da kazalı, hasarlı, pert ve hurda araç alımı. Osmangazi, Nilüfer, Yıldırım hizmet. 1 saat içinde teklif. 0555 123 45 67',
+    metaDescription: 'Bursa\'da kazalı, hasarlı, pert ve hurda araç alımı. Osmangazi, Nilüfer, Yıldırım hizmet. 1 saat içinde teklif. 0 555 751 22 20',
     keywords: [
       'bursa kazalı araç alan',
       'bursa hasarlı araç alan',
@@ -514,7 +514,7 @@ export const cities: Record<string, City> = {
     region: 'Akdeniz',
 
     metaTitle: 'Antalya Kazalı, Hasarlı, Pert, Hurda Araç Alımı | Kazalı Araç Alım Satım',
-    metaDescription: 'Antalya\'da kazalı, hasarlı, pert ve hurda araç alımı. Muratpaşa, Kepez, Konyaaltı hizmet. 1 saat içinde teklif. 0555 123 45 67',
+    metaDescription: 'Antalya\'da kazalı, hasarlı, pert ve hurda araç alımı. Muratpaşa, Kepez, Konyaaltı hizmet. 1 saat içinde teklif. 0 555 751 22 20',
     keywords: [
       'antalya kazalı araç alan',
       'antalya hasarlı araç alan',
