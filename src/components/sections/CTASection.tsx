@@ -2,7 +2,7 @@
 
 import { CTASection as CTASectionType } from '@/data/types';
 import { formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
-import { trackPhoneClick, trackWhatsAppClick, trackCTAClick } from '@/lib/analytics';
+
 import { siteConfig } from '@/data/site';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
@@ -11,51 +11,22 @@ interface CTASectionProps {
 }
 
 export default function CTASection({ data }: CTASectionProps) {
-  const handlePrimaryClick = () => {
-    trackCTAClick(data.id, data.primaryButton.action);
-    if (data.primaryButton.action === 'phone') {
-      trackPhoneClick(`cta-${data.id}`);
-    } else if (data.primaryButton.action === 'whatsapp') {
-      trackWhatsAppClick(`cta-${data.id}`);
-    }
+  const handlePrimaryClick = (e: React.MouseEvent) => {
+    e.preventDefault();
   };
 
-  const handleSecondaryClick = () => {
-    if (data.secondaryButton) {
-      trackCTAClick(data.id, data.secondaryButton.action);
-      if (data.secondaryButton.action === 'phone') {
-        trackPhoneClick(`cta-${data.id}-secondary`);
-      } else if (data.secondaryButton.action === 'whatsapp') {
-        trackWhatsAppClick(`cta-${data.id}-secondary`);
-      }
-    }
+  const handleSecondaryClick = (e: React.MouseEvent) => {
+    e.preventDefault();
   };
 
-  const getPrimaryHref = () => {
-    if (data.primaryButton.action === 'phone') {
-      return formatPhoneHref(siteConfig.phone);
-    } else if (data.primaryButton.action === 'whatsapp') {
-      return formatWhatsAppHref(siteConfig.whatsapp);
-    }
-    return '#';
-  };
-
-  const getSecondaryHref = () => {
-    if (data.secondaryButton) {
-      if (data.secondaryButton.action === 'phone') {
-        return formatPhoneHref(siteConfig.phone);
-      } else if (data.secondaryButton.action === 'whatsapp') {
-        return formatWhatsAppHref(siteConfig.whatsapp);
-      }
-    }
-    return '#';
-  };
+  const getPrimaryHref = () => '#';
+  const getSecondaryHref = () => '#';
 
   return (
     <section
       className={`section ${data.background === 'gradient'
-          ? 'bg-gradient-to-br from-primary-800 via-secondary-800 to-secondary-900'
-          : 'bg-accent-50'
+        ? 'bg-gradient-to-br from-primary-800 via-secondary-800 to-secondary-900'
+        : 'bg-accent-50'
         }`}
     >
       <div className="container">
@@ -65,8 +36,8 @@ export default function CTASection({ data }: CTASectionProps) {
           {data.badge && (
             <div className="inline-block mb-6">
               <span className={`badge ${data.background === 'gradient'
-                  ? 'bg-white/20 text-white border border-white/30'
-                  : 'badge-primary'
+                ? 'bg-white/20 text-white border border-white/30'
+                : 'badge-primary'
                 }`}>
                 {data.badge}
               </span>
@@ -98,10 +69,8 @@ export default function CTASection({ data }: CTASectionProps) {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={getPrimaryHref()}
+              href="#"
               onClick={handlePrimaryClick}
-              target={data.primaryButton.action === 'whatsapp' ? '_blank' : undefined}
-              rel={data.primaryButton.action === 'whatsapp' ? 'noopener noreferrer' : undefined}
               className="btn btn-primary btn-lg gap-2"
               style={data.primaryButton.action === 'whatsapp' ? { backgroundColor: '#25D366', borderColor: '#25D366', color: 'white' } : undefined}
             >
@@ -112,13 +81,11 @@ export default function CTASection({ data }: CTASectionProps) {
 
             {data.secondaryButton && (
               <a
-                href={getSecondaryHref()}
+                href="#"
                 onClick={handleSecondaryClick}
-                target={data.secondaryButton.action === 'whatsapp' ? '_blank' : undefined}
-                rel={data.secondaryButton.action === 'whatsapp' ? 'noopener noreferrer' : undefined}
                 className={`btn btn-lg gap-2 ${data.background === 'gradient'
-                    ? 'btn-secondary'
-                    : 'btn-outline'
+                  ? 'btn-secondary'
+                  : 'btn-outline'
                   }`}
                 style={data.secondaryButton.action === 'whatsapp' ? { backgroundColor: '#25D366', borderColor: '#25D366', color: 'white' } : undefined}
               >

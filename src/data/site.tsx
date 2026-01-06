@@ -8,16 +8,17 @@ export const siteConfig: SiteConfig = {
   tagline: 'Aracınızı En Yüksek Fiyata Satın Alıyoruz',
 
   // Contact Information (Replace with real numbers)
-  phone: '+905557512220',
-  phoneDisplay: '0 555 751 22 20',
-  whatsapp: '905557512220',
-  email: 'info@kazaliaracalimsatim.com',
-  address: 'İvedik OSB Mahallesi, 1468. Cadde No: 56, Yenimahalle/Ankara',
+  // Contact Information (DEMO MODE)
+  phone: '+905555555555',
+  phoneDisplay: '0 555 555 55 55',
+  whatsapp: '905555555555',
+  email: 'demo@example.com',
+  address: 'Demo Mahallesi, Demo Caddesi No: 1, Demo/Şehir',
 
   // Social Media
   social: {
-    facebook: 'https://facebook.com/otomotoalim',
-    instagram: 'https://instagram.com/otomotoalim',
+    facebook: 'https://facebook.com',
+    instagram: 'https://instagram.com',
   },
 
   // Business Info

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { siteConfig } from '@/data/site';
 import { footerNavigation } from '@/data/navigation';
@@ -21,9 +23,8 @@ export default function Footer() {
             <div className="flex gap-4">
               {siteConfig.social.facebook && (
                 <a
-                  href={siteConfig.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
                   className="text-2xl hover:text-accent transition-colors"
                   aria-label="Facebook"
                 >
@@ -32,9 +33,8 @@ export default function Footer() {
               )}
               {siteConfig.social.instagram && (
                 <a
-                  href={siteConfig.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
                   className="text-2xl hover:text-accent transition-colors"
                   aria-label="Instagram"
                 >

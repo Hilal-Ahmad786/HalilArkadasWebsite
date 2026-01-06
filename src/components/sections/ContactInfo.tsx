@@ -21,7 +21,7 @@ export default function ContactInfo() {
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">Telefon</h3>
                                     <p className="text-gray-600 mb-2">7/24 Bize Ulaşabilirsiniz</p>
-                                    <a href={formatPhoneHref(siteConfig.phone)} className="text-xl font-bold text-primary hover:text-primary-700 transition-colors">
+                                    <a href="#" onClick={(e) => e.preventDefault()} className="text-xl font-bold text-primary hover:text-primary-700 transition-colors">
                                         {siteConfig.phoneDisplay}
                                     </a>
                                 </div>
@@ -34,7 +34,7 @@ export default function ContactInfo() {
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">WhatsApp</h3>
                                     <p className="text-gray-600 mb-2">Hızlı Teklif Hattı</p>
-                                    <a href={formatWhatsAppHref(siteConfig.whatsapp)} target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-green-600 hover:text-green-700 transition-colors">
+                                    <a href="#" onClick={(e) => e.preventDefault()} className="text-xl font-bold text-green-600 hover:text-green-700 transition-colors">
                                         WhatsApp'tan Yazın
                                     </a>
                                 </div>
@@ -47,7 +47,7 @@ export default function ContactInfo() {
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">E-posta</h3>
                                     <p className="text-gray-600 mb-2">Teklif ve Bilgi İçin</p>
-                                    <a href={`mailto:${siteConfig.email}`} className="text-lg font-medium text-gray-900 hover:text-primary transition-colors">
+                                    <a href="#" onClick={(e) => e.preventDefault()} className="text-lg font-medium text-gray-900 hover:text-primary transition-colors">
                                         {siteConfig.email}
                                     </a>
                                 </div>

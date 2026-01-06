@@ -2,7 +2,7 @@
 
 import { siteConfig } from '@/data/site';
 import { formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
-import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
+
 import { FaCar, FaPhoneAlt, FaWhatsapp, FaBolt, FaMoneyBillWave, FaTruck, FaCheckCircle, FaShieldAlt, FaStar } from 'react-icons/fa';
 
 interface HeroProps {
@@ -69,10 +69,8 @@ export default function HeroSection({
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16 animate-fade-in-up delay-300">
             <a
-              href={formatWhatsAppHref(siteConfig.whatsapp)}
-              onClick={() => trackWhatsAppClick('hero')}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              onClick={(e) => e.preventDefault()}
               className="group relative px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,211,102,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3"
             >
               <FaWhatsapp className="text-2xl" />
@@ -81,8 +79,8 @@ export default function HeroSection({
             </a>
 
             <a
-              href={formatPhoneHref(siteConfig.phone)}
-              onClick={() => trackPhoneClick('hero')}
+              href="#"
+              onClick={(e) => e.preventDefault()}
               className="group relative px-8 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1 flex items-center justify-center gap-3 border border-white/10"
             >
               <FaPhoneAlt className="text-xl" />

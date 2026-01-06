@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import GoogleTagManager from '@/components/analytics/GoogleTagManager';
-import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
-import FacebookPixel from '@/components/analytics/FacebookPixel';
 import PopupDialog from '@/components/layout/PopupDialog';
+import DemoGuard from '@/components/layout/DemoGuard';
 import { siteConfig } from '@/data/site';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -46,11 +44,9 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={inter.className}>
-        <GoogleTagManager />
         {children}
         <PopupDialog />
-        <GoogleAnalytics />
-        <FacebookPixel />
+        <DemoGuard />
       </body>
     </html>
   );

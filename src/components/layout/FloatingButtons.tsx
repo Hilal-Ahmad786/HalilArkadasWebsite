@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
-import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
 import { siteConfig } from '@/data/site';
 import { FaPhoneAlt, FaWhatsapp, FaPaperPlane, FaTimes, FaRobot } from 'react-icons/fa';
 
@@ -39,20 +38,16 @@ export default function FloatingButtons() {
     setInputValue('');
 
     // Simulate bot response
+    // Simulate bot response - Demo Mode
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
         {
-          text: 'Müşteri temsilcimiz şu an WhatsApp üzerinden hizmet vermektedir. Sizi oraya yönlendiriyorum...',
+          text: 'Demo Modu: Bu özellik şu anda aktif değil.',
           isBot: true,
         },
       ]);
-
-      // Redirect to WhatsApp after a short delay
-      setTimeout(() => {
-        const whatsappUrl = formatWhatsAppHref(siteConfig.whatsapp, text);
-        window.open(whatsappUrl, '_blank');
-      }, 1500);
+      // No redirection in demo mode
     }, 1000);
   };
 
@@ -91,8 +86,8 @@ export default function FloatingButtons() {
               >
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.isBot
-                      ? 'bg-white text-gray-800 rounded-tl-none shadow-sm border border-gray-100'
-                      : 'bg-primary text-white rounded-tr-none shadow-md'
+                    ? 'bg-white text-gray-800 rounded-tl-none shadow-sm border border-gray-100'
+                    : 'bg-primary text-white rounded-tr-none shadow-md'
                     }`}
                 >
                   {msg.text}
@@ -154,10 +149,8 @@ export default function FloatingButtons() {
       {/* Desktop Floating Buttons */}
       <div className="hidden md:flex fixed bottom-8 right-8 flex-col gap-4 z-40">
         <a
-          href={formatWhatsAppHref(siteConfig.whatsapp)}
-          onClick={() => trackWhatsAppClick('floating')}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#"
+          onClick={(e) => e.preventDefault()}
           className="text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
           style={{ backgroundColor: '#25D366' }}
           aria-label="WhatsApp"
@@ -165,8 +158,8 @@ export default function FloatingButtons() {
           <FaWhatsapp className="text-3xl" />
         </a>
         <a
-          href={formatPhoneHref(siteConfig.phone)}
-          onClick={() => trackPhoneClick('floating')}
+          href="#"
+          onClick={(e) => e.preventDefault()}
           className="bg-accent text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform floating"
           aria-label="Telefon"
         >
@@ -199,18 +192,16 @@ export default function FloatingButtons() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t-2 border-accent z-50">
         <div className="flex">
           <a
-            href={formatPhoneHref(siteConfig.phone)}
-            onClick={() => trackPhoneClick('mobile-bottom')}
+            href="#"
+            onClick={(e) => e.preventDefault()}
             className="flex-1 flex flex-col items-center justify-center py-3 bg-accent text-white"
           >
             <FaPhoneAlt className="text-2xl mb-1" />
             <span className="text-xs font-semibold">Hemen Ara</span>
           </a>
           <a
-            href={formatWhatsAppHref(siteConfig.whatsapp)}
-            onClick={() => trackWhatsAppClick('mobile-bottom')}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => e.preventDefault()}
             className="flex-1 flex flex-col items-center justify-center py-3 text-white"
             style={{ backgroundColor: '#25D366' }}
           >

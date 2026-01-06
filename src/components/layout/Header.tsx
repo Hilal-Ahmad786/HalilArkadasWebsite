@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { siteConfig } from '@/data/site';
 import { mainNavigation } from '@/data/navigation';
 import { formatPhoneDisplay, formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
-import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
+
 import { FaPhoneAlt, FaWhatsapp, FaBolt, FaCheckCircle, FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Header() {
@@ -21,8 +21,8 @@ export default function Header() {
             <span className="hidden md:flex items-center gap-1"><FaCheckCircle className="text-green-400" /> %100 Güvenli İşlem</span>
           </div>
           <a
-            href={formatPhoneHref(siteConfig.phone)}
-            onClick={() => trackPhoneClick('header-top')}
+            href="#"
+            onClick={(e) => e.preventDefault()}
             className="font-semibold hover:text-accent transition-colors flex items-center gap-2"
           >
             <FaPhoneAlt /> {formatPhoneDisplay(siteConfig.phone)}
@@ -73,18 +73,16 @@ export default function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href={formatWhatsAppHref(siteConfig.whatsapp)}
-              onClick={() => trackWhatsAppClick('header')}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              onClick={(e) => e.preventDefault()}
               className="btn btn-sm text-white border-0 gap-2"
               style={{ backgroundColor: '#25D366' }}
             >
               <FaWhatsapp className="text-lg" /> WhatsApp
             </a>
             <a
-              href={formatPhoneHref(siteConfig.phone)}
-              onClick={() => trackPhoneClick('header')}
+              href="#"
+              onClick={(e) => e.preventDefault()}
               className="btn btn-primary btn-sm gap-2"
             >
               <FaPhoneAlt /> Hemen Ara
@@ -133,18 +131,16 @@ export default function Header() {
             {/* Mobile CTA Buttons */}
             <div className="mt-4 flex flex-col gap-2">
               <a
-                href={formatWhatsAppHref(siteConfig.whatsapp)}
-                onClick={() => trackWhatsAppClick('header-mobile')}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => e.preventDefault()}
                 className="btn w-full text-white border-0 gap-2"
                 style={{ backgroundColor: '#25D366' }}
               >
                 <FaWhatsapp className="text-lg" /> WhatsApp
               </a>
               <a
-                href={formatPhoneHref(siteConfig.phone)}
-                onClick={() => trackPhoneClick('header-mobile')}
+                href="#"
+                onClick={(e) => e.preventDefault()}
                 className="btn btn-primary w-full gap-2"
               >
                 <FaPhoneAlt /> Hemen Ara

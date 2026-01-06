@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { FaPhoneAlt, FaWhatsapp, FaTimes, FaCar, FaHandshake } from 'react-icons/fa';
 import { formatPhoneHref, formatWhatsAppHref } from '@/lib/utils';
-import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
 import { siteConfig } from '@/data/site';
 
 export default function PopupDialog() {
@@ -11,6 +10,8 @@ export default function PopupDialog() {
     const [hasBeenClosed, setHasBeenClosed] = useState(false);
 
     useEffect(() => {
+        // HOSTING NOTE: Popup auto-open disabled for demo
+        /*
         // Check if popup was already shown in this session
         const popupShown = sessionStorage.getItem('popupShown');
 
@@ -22,6 +23,7 @@ export default function PopupDialog() {
 
             return () => clearTimeout(timer);
         }
+        */
     }, [hasBeenClosed]);
 
     const handleClose = () => {
@@ -31,11 +33,7 @@ export default function PopupDialog() {
     };
 
     const handleCtaClick = (type: 'phone' | 'whatsapp') => {
-        if (type === 'phone') {
-            trackPhoneClick('popup-dialog');
-        } else {
-            trackWhatsAppClick('popup-dialog');
-        }
+        // Analytics disabled
         handleClose();
     };
 
@@ -103,10 +101,8 @@ export default function PopupDialog() {
                         <div className="space-y-3 md:space-y-4">
                             {/* WhatsApp Button - Primary CTA */}
                             <a
-                                href={formatWhatsAppHref(siteConfig.whatsapp, 'Merhaba, aracımı satmak istiyorum.')}
-                                onClick={() => handleCtaClick('whatsapp')}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#"
+                                onClick={(e) => { e.preventDefault(); handleCtaClick('whatsapp'); }}
                                 className="flex items-center justify-center gap-2 md:gap-3 w-full py-3 md:py-4 px-4 md:px-6 text-white font-bold text-base md:text-lg rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl"
                                 style={{
                                     backgroundColor: '#25D366',
@@ -119,8 +115,8 @@ export default function PopupDialog() {
 
                             {/* Phone Button - Secondary CTA */}
                             <a
-                                href={formatPhoneHref(siteConfig.phone)}
-                                onClick={() => handleCtaClick('phone')}
+                                href="#"
+                                onClick={(e) => { e.preventDefault(); handleCtaClick('phone'); }}
                                 className="flex items-center justify-center gap-2 md:gap-3 w-full py-3 md:py-4 px-4 md:px-6 bg-gradient-to-r from-accent to-red-600 text-white font-bold text-base md:text-lg rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:from-red-600 hover:to-accent"
                                 style={{
                                     boxShadow: '0 4px 20px rgba(239, 68, 68, 0.4)'
