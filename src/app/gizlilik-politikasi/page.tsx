@@ -9,6 +9,9 @@ export const metadata = {
     description: 'Premium Auto Alım Gizlilik Politikası ve Kişisel Verilerin Korunması hakkında bilgilendirme.',
 };
 
+
+
+
 export default function PrivacyPolicyPage() {
     return (
         <>
