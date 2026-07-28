@@ -35,6 +35,23 @@ export default function ServicesPage() {
                     }
                     subtitle="Aracınızın durumu ne olursa olsun, size özel çözümler sunuyoruz. Hızlı, güvenli ve değerinde alım."
                 />
+                <section className="bg-white py-6 border-b border-gray-100">
+                    <div className="container">
+                        <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
+                            Tüm hizmetlerimizde, Türkiye&apos;nin dört bir yanında{' '}
+                            <a
+                                href="https://hasarliaracalan.com/"
+                                target="_blank"
+                                rel="noopener"
+                                title="Hasarlı Araç Alan"
+                                className="font-semibold text-primary-600 hover:text-primary-700 underline"
+                            >
+                                hasarlı araç alan
+                            </a>{' '}
+                            güvenilir ağımızla hızlı, şeffaf ve değerinde alım garantisi veriyoruz.
+                        </p>
+                    </div>
+                </section>
                 <ServicesGridColored />
                 <ProcessTimeline />
                 <VehicleTypesAccepted serviceType="kazali" />

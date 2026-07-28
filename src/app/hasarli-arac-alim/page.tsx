@@ -46,6 +46,25 @@ export default function HasarliAracPage() {
           subtitle={service.hero.subtitle}
         />
 
+        {/* Contextual intro under hero */}
+        <section className="bg-white py-6 border-b border-gray-100">
+          <div className="container">
+            <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
+              Aracınızda ister kaporta ister mekanik hasar olsun, yılların tecrübesiyle{' '}
+              <a
+                href="https://hasarliaracalan.com/"
+                target="_blank"
+                rel="noopener"
+                title="Hasarlı Araç Alan"
+                className="font-semibold text-primary-600 hover:text-primary-700 underline"
+              >
+                hasarlı araç alan
+              </a>{' '}
+              uzman kadromuz yerinde ekspertizle en yüksek teklifi anında iletir.
+            </p>
+          </div>
+        </section>
+
         {/* 2. Trust Signals - Builds Immediate Credibility */}
         <TrustBadgesSection />
 

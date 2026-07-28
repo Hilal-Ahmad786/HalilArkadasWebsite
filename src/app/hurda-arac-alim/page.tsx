@@ -46,6 +46,25 @@ export default function HurdaAracPage() {
           subtitle={service.hero.subtitle}
         />
 
+        {/* Contextual intro under hero */}
+        <section className="bg-white py-6 border-b border-gray-100">
+          <div className="container">
+            <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
+              Ekonomik ömrünü tamamlamış aracınız için bile ülke çapında{' '}
+              <a
+                href="https://hasarliaracalan.com/"
+                target="_blank"
+                rel="noopener"
+                title="Hasarlı Araç Alan"
+                className="font-semibold text-primary-600 hover:text-primary-700 underline"
+              >
+                hasarlı araç alan
+              </a>{' '}
+              ekibimiz çekici dahil tüm masrafları üstlenerek nakit ödeme yapar.
+            </p>
+          </div>
+        </section>
+
         {/* 2. Trust Signals - Builds Immediate Credibility */}
         <TrustBadgesSection />
 

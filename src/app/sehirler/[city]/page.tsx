@@ -65,6 +65,25 @@ export default function CityPage({ params }: { params: { city: string } }) {
           subtitle={city.hero.subtitle}
         />
 
+        {/* Contextual intro under hero */}
+        <section className="bg-white py-6 border-b border-gray-100">
+          <div className="container">
+            <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
+              {city.name} ve çevre ilçelerde{' '}
+              <a
+                href="https://hasarliaracalan.com/"
+                target="_blank"
+                rel="noopener"
+                title="Hasarlı Araç Alan"
+                className="font-semibold text-primary-600 hover:text-primary-700 underline"
+              >
+                hasarlı araç alan
+              </a>{' '}
+              ekibimiz, aracınızı yerinde değerlendirip aynı gün nakit ödemenizi gerçekleştirir.
+            </p>
+          </div>
+        </section>
+
         {/* 2. Trust Badges */}
         <TrustBadgesSection />
 
