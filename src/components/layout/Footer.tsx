@@ -122,9 +122,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-700 mt-8 pt-8 text-center text-primary-200 text-sm">
+        <div className="border-t border-primary-700 mt-8 pt-8 flex flex-col items-center gap-4 text-center text-primary-200 text-sm sm:flex-row sm:justify-between">
           <p>&copy; {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.</p>
 
+          {/* Geliştiren PakSoft — prominent pill badge */}
+          <a
+            href="https://paksoft.com.tr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 rounded-full border-2 border-accent/60 bg-accent/10 px-6 py-2.5 text-[15px] shadow-lg shadow-accent/10 transition-colors hover:border-accent hover:bg-accent/20"
+          >
+            <span className="font-medium text-white/85">Geliştiren</span>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 -rotate-12 text-accent" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.85 0 3.58-.5 5.08-1.38-.7.13-1.42.21-2.16.21-5.52 0-10-4.48-10-10S9.42 2.83 14.92 2.83c.74 0 1.46.08 2.16.21C15.58 2.5 13.85 2 12 2z" />
+            </svg>
+            <span className="text-[17px] font-extrabold tracking-wide text-white group-hover:text-accent transition-colors">PakSoft</span>
+          </a>
         </div>
       </div>
     </footer>
