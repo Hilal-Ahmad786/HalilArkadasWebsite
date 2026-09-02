@@ -273,7 +273,7 @@ export default function TestimonialsEnhanced({ testimonials: propTestimonials }:
             Siz de bu mutlu müşterilerimize katılın!
           </p>
           <a
-            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+            href="tel:+905525677164"
             className="btn btn-lg bg-accent hover:bg-accent-600 text-white border-0 gap-2"
           >
             <FaPhone /> Hemen Teklif Al →

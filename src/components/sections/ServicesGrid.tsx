@@ -63,7 +63,7 @@ export default function ServicesGrid() {
             Hangi hizmeti seçeceğinizden emin değil misiniz?
           </p>
           <a
-            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+            href="tel:+905525677164"
             className="btn btn-primary btn-lg gap-2"
           >
             <FaPhoneAlt /> Bizi Arayın, Yönlendirelim

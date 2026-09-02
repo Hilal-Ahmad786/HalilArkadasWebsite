@@ -89,13 +89,13 @@ export default function GuaranteePromises() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+              href="tel:+905525677164"
               className="btn bg-primary hover:bg-primary-700 text-white font-bold"
             >
               Garantili Hizmet İçin Arayın
             </a>
             <a
-              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP}`}
+              href="https://wa.me/905525677164"
               target="_blank"
               rel="noopener noreferrer"
               className="btn bg-success hover:bg-green-600 text-white font-bold"

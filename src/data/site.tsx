@@ -8,9 +8,9 @@ export const siteConfig: SiteConfig = {
   tagline: 'Aracınızı En Yüksek Fiyata Satın Alıyoruz',
 
   // Contact Information (Replace with real numbers)
-  phone: '+905557512220',
-  phoneDisplay: '0 555 751 22 20',
-  whatsapp: '905557512220',
+  phone: '+905525677164',
+  phoneDisplay: '0 552 567 71 64',
+  whatsapp: '905525677164',
   email: 'info@kazaliaracalimsatim.com',
   address: 'İvedik OSB Mahallesi, 1468. Cadde No: 56, Yenimahalle/Ankara',
 

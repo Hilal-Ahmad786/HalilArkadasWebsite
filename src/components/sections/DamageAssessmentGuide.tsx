@@ -135,7 +135,7 @@ export default function DamageAssessmentGuide({ serviceType }: DamageAssessmentP
             Uzman ekibimiz ücretsiz olarak aracınızı değerlendirir ve size en doğru bilgiyi verir.
           </p>
           <a
-            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+            href="tel:+905525677164"
             className="btn bg-accent hover:bg-accent-600 text-white font-bold"
           >
             Ücretsiz Ekspertiz İçin Arayın

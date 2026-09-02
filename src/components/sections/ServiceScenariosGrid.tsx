@@ -273,7 +273,7 @@ export default function ServiceScenariosGrid({ serviceType }: ServiceScenariosPr
             Her durum özeldir. Yukarıda görmediğiniz bir senaryodaysanız, yine de bize ulaşın. 15 yıldır her türlü duruma çözüm üretiyoruz.
           </p>
           <a
-            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+            href="tel:+905525677164"
             className="btn bg-white hover:bg-gray-100 text-accent font-bold"
           >
             Durumunuzu Anlatın, Çözüm Bulalım

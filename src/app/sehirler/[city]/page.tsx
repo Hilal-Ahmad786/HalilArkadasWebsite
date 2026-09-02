@@ -138,13 +138,13 @@ export default function CityPage({ params }: { params: { city: string } }) {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+                href="tel:+905525677164"
                 className="btn btn-lg bg-blue-600 hover:bg-blue-700 text-white border-0 font-bold flex items-center justify-center gap-2"
               >
                 <FaPhoneAlt /> Hemen Ara
               </a>
               <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP}`}
+                href="https://wa.me/905525677164"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-lg bg-[#25D366] hover:bg-[#20bd5a] text-white border-0 font-bold flex items-center justify-center gap-2"

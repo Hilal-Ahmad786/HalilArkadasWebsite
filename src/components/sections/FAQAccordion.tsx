@@ -82,13 +82,13 @@ export default function FAQAccordion({ faqs, title = 'MERAK EDİLENLER', subtitl
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+              href="tel:+905525677164"
               className="btn bg-accent hover:bg-accent-600 text-white border-0 gap-2"
             >
               <FaPhoneAlt /> Hemen Ara
             </a>
             <a
-              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP}`}
+              href="https://wa.me/905525677164"
               target="_blank"
               rel="noopener noreferrer"
               className="btn text-white border-0 gap-2"

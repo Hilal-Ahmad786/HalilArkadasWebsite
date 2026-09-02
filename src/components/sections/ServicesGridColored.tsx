@@ -165,7 +165,7 @@ export default function ServicesGridColored() {
             Aracınız hangi kategoride? Hemen arayın, anında teklif alın!
           </p>
           <a
-            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+            href="tel:+905525677164"
             className="btn btn-lg bg-success hover:bg-success/90 text-white border-0 gap-2"
           >
             <FaPhoneAlt /> 0 530 344 40 97

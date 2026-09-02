@@ -123,7 +123,7 @@ export default function VehicleTypesAccepted({ serviceType }: VehicleTypesProps)
             Yukarıda görmediğiniz her türlü araç, özel araç veya modifiye araçlar için de hizmet veriyoruz. Bize ulaşın, değerlendirelim.
           </p>
           <a
-            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+            href="tel:+905525677164"
             className="btn bg-accent hover:bg-accent-600 text-white font-bold inline-flex items-center gap-2"
           >
             Aracınız İçin Teklif Alın
