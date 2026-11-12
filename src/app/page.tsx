@@ -26,15 +26,7 @@ export default function HomePage() {
           <div className="container">
             <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
               Kazalı, pert veya hurda fark etmeksizin; Türkiye&apos;nin her noktasında{' '}
-              <a
-                href="https://hasarliaracalan.com/"
-                target="_blank"
-                rel="noopener"
-                title="Hasarlı Araç Alan"
-                className="font-semibold text-primary-600 hover:text-primary-700 underline"
-              >
-                hasarlı araç alan
-              </a>{' '}
+              hasarlı araç alan{' '}
               çözüm ortağımızla birlikte aracınıza dakikalar içinde gerçek piyasa değerini sunuyoruz.
             </p>
           </div>

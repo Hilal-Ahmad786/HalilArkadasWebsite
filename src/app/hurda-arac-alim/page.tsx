@@ -52,15 +52,7 @@ export default function HurdaAracPage() {
           <div className="container">
             <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
               Ekonomik ömrünü tamamlamış aracınız için bile ülke çapında{' '}
-              <a
-                href="https://hasarliaracalan.com/"
-                target="_blank"
-                rel="noopener"
-                title="Hasarlı Araç Alan"
-                className="font-semibold text-primary-600 hover:text-primary-700 underline"
-              >
-                hasarlı araç alan
-              </a>{' '}
+              hasarlı araç alan{' '}
               ekibimiz çekici dahil tüm masrafları üstlenerek nakit ödeme yapar.
             </p>
           </div>

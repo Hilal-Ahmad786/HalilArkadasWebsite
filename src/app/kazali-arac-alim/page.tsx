@@ -52,15 +52,7 @@ export default function KazaliAracPage() {
           <div className="container">
             <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
               Kazalı aracınız için teklif almak artık dakikalar sürüyor; Türkiye genelinde{' '}
-              <a
-                href="https://hasarliaracalan.com/"
-                target="_blank"
-                rel="noopener"
-                title="Hasarlı Araç Alan"
-                className="font-semibold text-primary-600 hover:text-primary-700 underline"
-              >
-                hasarlı araç alan
-              </a>{' '}
+              hasarlı araç alan{' '}
               partner ağımız sayesinde ekspertiz ve ödeme sürecini aynı gün tamamlıyoruz.
             </p>
           </div>

@@ -52,15 +52,7 @@ export default function PertAracPage() {
           <div className="container">
             <p className="text-center text-gray-600 text-sm md:text-base max-w-3xl mx-auto">
               Pert kaydı bulunan aracınızı beklemeye gerek yok; sigorta ve noter süreçlerinde de yanınızda olan{' '}
-              <a
-                href="https://hasarliaracalan.com/"
-                target="_blank"
-                rel="noopener"
-                title="Hasarlı Araç Alan"
-                className="font-semibold text-primary-600 hover:text-primary-700 underline"
-              >
-                hasarlı araç alan
-              </a>{' '}
+              hasarlı araç alan{' '}
               profesyonel ekibimizden hemen teklif alın.
             </p>
           </div>
