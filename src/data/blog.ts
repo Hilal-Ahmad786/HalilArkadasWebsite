@@ -1,3 +1,5 @@
+import { mdPosts } from './blog-md.generated';
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -136,6 +138,19 @@ export const blogPosts: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1553260168-69b041873e65?q=80&w=2000&auto=format&fit=crop'
   }
 ];
+
+// Daily Markdown posts from content/blog/*.md (see scripts/build-blog.mjs), newest first.
+blogPosts.unshift(...mdPosts.map((p): BlogPost => ({
+  id: `md-${p.slug}`,
+  slug: p.slug,
+  title: p.title,
+  excerpt: p.description,
+  content: `<div class="md-post">${p.html}</div>`,
+  date: p.date,
+  author: 'Kazalı Araç Alım Satım',
+  category: p.category,
+  image: p.image || blogPosts[0].image,
+})));
 
 export function getAllPosts() {
   return blogPosts;
