@@ -9,7 +9,8 @@ import VehicleTypesAccepted from '@/components/sections/VehicleTypesAccepted';
 import { FaTools } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-    title: 'Hizmetlerimiz - Neler Yapıyoruz? | Premium Auto',
+    alternates: { canonical: '/hizmetler' },
+    title: 'Hizmetlerimiz - Neler Yapıyoruz?',
     description: 'Kazalı, hasarlı, pert ve hurda araç alımı, ücretsiz çekici, yerinde ekspertiz ve anında nakit ödeme hizmetlerimiz.',
 };
 

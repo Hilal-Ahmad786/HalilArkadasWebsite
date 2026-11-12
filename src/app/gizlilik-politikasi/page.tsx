@@ -5,6 +5,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import { FaShieldAlt } from 'react-icons/fa';
 
 export const metadata = {
+    alternates: { canonical: '/gizlilik-politikasi' },
     title: 'Gizlilik Politikası',
     description: 'Premium Auto Alım Gizlilik Politikası ve Kişisel Verilerin Korunması hakkında bilgilendirme.',
 };

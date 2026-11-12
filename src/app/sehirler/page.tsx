@@ -9,7 +9,8 @@ import { getAllCities } from '@/data/cities';
 import { FaMapMarkedAlt, FaArrowRight } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-    title: 'Hizmet Bölgelerimiz - Şehirler | Premium Auto',
+    alternates: { canonical: '/sehirler' },
+    title: 'Hizmet Bölgelerimiz - Şehirler',
     description: 'Türkiye\'nin 81 ilinde hizmet veriyoruz. Size en yakın ekibimizle 30 dakikada yanınızdayız.',
 };
 

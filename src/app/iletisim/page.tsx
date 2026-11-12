@@ -8,7 +8,8 @@ import FAQAccordion from '@/components/sections/FAQAccordion';
 import { FaHeadset } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-    title: 'İletişim - Bize Ulaşın | Premium Auto',
+    alternates: { canonical: '/iletisim' },
+    title: 'İletişim - Bize Ulaşın',
     description: 'Hasarlı, kazalı, pert ve hurda araçlarınız için 7/24 bizimle iletişime geçebilirsiniz. Anında değerleme ve nakit ödeme.',
 };
 

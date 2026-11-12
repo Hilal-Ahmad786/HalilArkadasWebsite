@@ -21,7 +21,8 @@ import { ctaSections } from '@/data/cta';
 const service = getServiceBySlug('hurda-arac-alim');
 
 export const metadata: Metadata = {
-  title: service?.metaTitle || 'Hurda Araç Alımı',
+    alternates: { canonical: '/hurda-arac-alim' },
+  title: service?.metaTitle ? { absolute: service.metaTitle } : 'Hurda Araç Alımı',
   description: service?.metaDescription || '',
   keywords: service?.keywords || [],
 };

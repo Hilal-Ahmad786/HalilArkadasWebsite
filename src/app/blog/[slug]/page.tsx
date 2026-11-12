@@ -24,8 +24,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 
     return {
-        title: `${post.title} | Premium Auto Blog`,
+        title: post.title,
         description: post.excerpt,
+        alternates: { canonical: `/blog/${post.slug}` },
     };
 }
 

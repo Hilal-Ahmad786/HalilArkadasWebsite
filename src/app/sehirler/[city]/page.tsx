@@ -35,9 +35,10 @@ export async function generateMetadata({ params }: { params: { city: string } })
   }
 
   return {
-    title: city.metaTitle,
+    title: { absolute: city.metaTitle },
     description: city.metaDescription,
     keywords: city.keywords,
+    alternates: { canonical: `/sehirler/${city.slug}` },
   };
 }
 

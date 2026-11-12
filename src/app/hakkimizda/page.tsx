@@ -10,8 +10,9 @@ import GuaranteePromises from '@/components/sections/GuaranteePromises';
 import { FaBuilding } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-    title: 'Hakkımızda - Kurumsal | Premium Auto',
-    description: 'Premium Auto olarak 15 yılı aşkın tecrübemizle hasarlı, kazalı ve pert araç alımında Türkiye\'nin lider firmasıyız.',
+    alternates: { canonical: '/hakkimizda' },
+    title: 'Hakkımızda - Kurumsal',
+    description: '15 yılı aşkın tecrübemizle Türkiye genelinde hasarlı, kazalı, pert ve hurda araç alımı yapıyoruz. Ücretsiz ekspertiz ve aynı gün nakit ödeme.',
 };
 
 export default function AboutPage() {

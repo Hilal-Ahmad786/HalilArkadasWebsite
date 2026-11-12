@@ -5,6 +5,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import { FaFileContract } from 'react-icons/fa';
 
 export const metadata = {
+    alternates: { canonical: '/kullanim-kosullari' },
     title: 'Kullanım Koşulları',
     description: 'Premium Auto Alım web sitesi Kullanım Koşulları ve yasal uyarılar.',
 };

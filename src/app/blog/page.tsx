@@ -8,7 +8,8 @@ import { getAllPosts } from '@/data/blog';
 import { FaNewspaper } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-    title: 'Blog - Haberler ve Rehberler | Premium Auto',
+    alternates: { canonical: '/blog' },
+    title: 'Blog - Haberler ve Rehberler',
     description: 'Hasarlı araç sektörü, araç satış rehberleri ve güncel haberler için blog sayfamızı takip edin.',
 };
 

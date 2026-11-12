@@ -8,6 +8,13 @@ import StatsSection from '@/components/sections/StatsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import { ctaSections } from '@/data/cta';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: { absolute: 'Hasarlı, Kazalı, Pert ve Hurda Araç Alım Satım | 30 Dakikada Teklif' },
+  description: 'Hasarlı, kazalı, pert ve hurda aracınızı Türkiye genelinde satın alıyoruz. Ücretsiz ekspertiz, 30 dakikada teklif ve aynı gün nakit ödeme. Hemen arayın.',
+  alternates: { canonical: '/' },
+};
 
 export default function HomePage() {
   return (
