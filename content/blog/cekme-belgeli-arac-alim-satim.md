@@ -31,6 +31,8 @@ Belge elinizdeyken aracın başka bir ilçede olması görüşmeye engel değild
 
 Kontrol listesi ön değerlendirme içindir. Her dosyada aynı belgelerin yeterli olacağını söylemek doğru olmaz. Temsil, kayıt kısıtı veya farklı bir mülkiyet durumu varsa gerekli evrakı noterle ayrıca teyit edin.
 
+![Ezilmiş çamurluğu olan aracın incelenmesi](/images/blog/cekme-belgeli-arac-alim-satim-1.webp)
+
 ## Tekliften noter ve teslime hangi sıra izlenir?
 
 1. **Ön teklif için bilgileri gönderin.** Fotoğrafları ve çekme kaydına ilişkin bildiklerinizi paylaşın. Görüntülerin ne zamana ait olduğunu ekleyin.
